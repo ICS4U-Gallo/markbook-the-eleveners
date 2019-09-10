@@ -6,3 +6,4 @@ Group members:
 
 def some_func():
     return True
+    return False
