@@ -27,12 +27,17 @@ from typing import Dict
 # points: float
 
 
+def create_student(first_name: str, last_name: str, gender: str, image: str, student_number: int, grade: int, email: str, marks: list[float], comments: str) -> Dict:
+    """Creates a student dictionary"""
+    return {}
+
+
 def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
     """Creates a classroom dictionary"""
     return {}
 
 
-def create_assignment():
+def create_assignment(due: str, name: str, points: float):
     """Creates an assignment represented as a dictionary"""
     return {}
 
