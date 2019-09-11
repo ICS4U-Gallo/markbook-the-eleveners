@@ -19,15 +19,16 @@ from typing import Dict
 # course_name: str
 # period: int
 # teacher_name: str
-# student_list: list[str]
-# assignments_list: list[str]
+# student_list: list[dict]
+# assignments_list: list[dict]
 # Assignments
 # due: str
 # name: str
 # points: float
 
 
-def create_student(first_name: str, last_name: str, gender: str, image: str, student_number: int, grade: int, email: str, marks: list[float], comments: str) -> Dict:
+def create_student(first_name: str, last_name: str, gender: str,
+                   image: str, student_number: int, grade: int, email: str) -> Dict:
     """Creates a student dictionary"""
     return {}
 
