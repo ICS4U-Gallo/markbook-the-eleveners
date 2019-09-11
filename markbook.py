@@ -29,11 +29,11 @@ from typing import Dict
 
 def create_student(first_name: str, last_name: str, gender: str,
                    image: str, student_number: int, grade: int, email: str) -> Dict:
-    """Creates a student dictionary"""
+    """Creates a student dictionary""""
     return {}
 
 
-def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
+def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict(str, int):
     """Creates a classroom dictionary"""
     return {}
 
@@ -46,3 +46,6 @@ def create_assignment(due: str, name: str, points: float):
 def calculate_average_mark(student: Dict) -> float:
     """Calculates the average mark of a student"""
     return 0
+
+
+print(create_classroom("ICS4U", "Computer Science 12", 3, "Mr. Gallo"))
