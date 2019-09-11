@@ -27,7 +27,7 @@ from typing import Dict
 # points: float
 
 
-def create_student(first_name: str, last_name: str, gender: str, image: str, student_number: int, grade: int, email: str, marks: list[float], comments: str) -> Dict:
+def create_student(first_name: str, last_name: str, gender: str, image: str, student_number: int, grade: int, email: str, mark:list, comments: str) -> Dict:
     """Creates a student dictionary"""
     return {}
 
