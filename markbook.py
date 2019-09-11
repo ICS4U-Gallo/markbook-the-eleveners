@@ -33,7 +33,7 @@ def create_student(first_name: str, last_name: str, gender: str,
     return {}
 
 
-def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict(str, int):
+def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
     """Creates a classroom dictionary"""
     return {}
 
