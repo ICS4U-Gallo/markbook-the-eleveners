@@ -27,9 +27,10 @@ from typing import Dict
 # points: float
 
 
-def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
+def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict(str, int):
     """Creates a classroom dictionary"""
-    return {}
+    classroomDict = {course_code, course_name, period, teacher}
+    return classroomDict
 
 
 def create_assignment():
@@ -40,3 +41,5 @@ def create_assignment():
 def calculate_average_mark(student: Dict) -> float:
     """Calculates the average mark of a student"""
     return 0
+
+print(create_classroom("ICS4U", "Computer Science 12", 3, "Mr. Gallo"))
