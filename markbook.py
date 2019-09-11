@@ -1,6 +1,6 @@
 """
 Markbook Application
-Group members: 
+Group members: Joshua, Joseph
 """
 
 
