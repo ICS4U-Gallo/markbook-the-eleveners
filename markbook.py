@@ -24,7 +24,7 @@ from typing import Dict
 # Assignments
 # due: str
 # name: str
-# points: float
+# points: int
 
 
 def create_student(first_name: str, last_name: str,
