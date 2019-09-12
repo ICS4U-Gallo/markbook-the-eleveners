@@ -36,23 +36,37 @@ def create_student(first_name: str, last_name: str,
             student_number, grade, email}
 
 
-def create_classroom(course_code: str,
-                     course_name: str, period: int,
-                     teacher: str) -> Dict:
+def create_assignment(name: str, due: str, points: int) -> Dict:
+    """Creates an assignment represented as a dictionary
+
+    Args:
+        name: the name of the assignment.
+        due: the due date for the assignment.
+        points: what the assignment is out of (denominator).
+    Returns:
+        Assignment as a dictionary.
+    """
+    return {name, due, points}
+
+
+def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
     """Creates a classroom dictionary"""
     return {course_code, course_name, period, teacher}
-
-
-def create_assignment(due: str, name: str,
-                      points: float):
-    """Creates an assignment represented as a
-    dictionary"""
-    return {due, name, points}
 
 
 def calculate_average_mark(student: Dict) -> float:
     """Calculates the average mark of a student"""
     return 0
+
+
+def add_student_to_classroom(student, classroom):
+    """Adds student to a classroom
+
+    Args:
+        student: Student dict
+        classroom: The classroom to add the student to
+    """
+    pass
 
 
 print(create_student("Joshua", "Chuang", "Male",
