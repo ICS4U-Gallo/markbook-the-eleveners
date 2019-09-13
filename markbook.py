@@ -72,3 +72,25 @@ def add_student_to_classroom(student, classroom):
 print(create_student("Joshua", "Chuang", "Male",
                      "Image", 6479299892, 11,
                      "joshthegreatsayshi@gmail.com"))
+
+
+def remove_student_from_classroom(student: Dict, classroom: Dict):
+    """Removes student from classroom
+
+    Args:
+        student: The student to be removed
+        classroom: the class from which the student will be removed.
+    """
+    pass
+
+
+def edit_student(student: Dict, **kwargs: Dict):
+    """Edits the student's info with the provided key/value pairs
+
+    Args:
+        student: The student whose data needs to be udated.
+        **kwargs: KeyWordARGumentS. The key/value pairs of the
+            data that needs to be changed. Can come in the form
+            of a dictionary.
+    """
+    pass
