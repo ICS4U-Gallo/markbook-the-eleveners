@@ -50,9 +50,7 @@ def test_create_classroom():
     classroom = markbook.create_classroom(course_code = "ICS4U",
                                           course_name = "Computer Science",
                                           period = 2,
-                                          teacher = "Mr. Gallo",
-                                          student_list = [],
-                                          assignment_list = [])
+                                          teacher = "Mr. Gallo")
     expected = {
         "course_code": "ICS4U",
         "course_name": "Computer Science",
@@ -88,9 +86,7 @@ def test_add_student_to_classroom():
     classroom = markbook.create_classroom(course_code="ICS4U",
                                           course_name="Computer Science",
                                           period=2,
-                                          teacher="Mr. Gallo",
-                                          student_list = [],
-                                          assignment_list = [])
+                                          teacher="Mr. Gallo")
     student = {"first_name": "John", "last_name": "Smith"}
 
     assert len(classroom["student_list"]) == 0
@@ -109,9 +105,7 @@ def test_remove_student_from_classroom():
     classroom = markbook.create_classroom(course_code="ICS4U",
                                           course_name="Computer Science",
                                           period=2,
-                                          teacher="Mr. Gallo",
-                                          student_list = [],
-                                          assignment_list = [])
+                                          teacher="Mr. Gallo")
     student = {"first_name": "John", "last_name": "Smith"}
 
     markbook.add_student_to_classroom(student, classroom)
