@@ -72,6 +72,7 @@ def add_student_to_classroom(student, classroom):
         student: Student dict
         classroom: The classroom to add the student to
     """
+    classroom["student_list"].append(student["first_name"] + student["last_name"])
     pass
 
 
