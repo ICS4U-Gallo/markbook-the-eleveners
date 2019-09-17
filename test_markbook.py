@@ -3,7 +3,7 @@ import pytest
 import markbook
 
 
-@pytest.mark.skip
+@pytest.mark
 def test_create_student():
     student1 = markbook.create_student(first_name = "Josh", last_name = "2", 
                               gender = "Male", image = "Josh.jpeg",
@@ -26,8 +26,8 @@ def test_create_student():
     assert student2["student_number"] == 123456789
     assert student2["email"] == "linda.322@ycdsbk12.ca"
 
-@pytest.mark.skip
-def test_create_assigment():
+@pytest.mark.skip()
+def test_create_assignment():
     assignment1 = markbook.create_assignment(name="Assignment One",
                                              due="2019-09-21",
                                              points=100)
@@ -46,7 +46,7 @@ def test_create_assigment():
     assert assignment2["points"] == 1
 
 
-@pytest.mark.skip()
+@pytest.mark.skip
 def test_create_classroom():
     classroom = markbook.create_classroom(course_code="ICS4U",
                                           course_name="Computer Science",
