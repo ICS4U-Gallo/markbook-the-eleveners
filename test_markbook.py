@@ -3,7 +3,6 @@ import pytest
 import markbook
 
 
-@pytest.mark
 def test_create_student():
     student1 = markbook.create_student(first_name = "Josh", last_name = "2", 
                               gender = "Male", image = "Josh.jpeg",
