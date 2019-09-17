@@ -4,10 +4,33 @@ import markbook
 
 
 @pytest.mark.skip
+def test_create_student():
+    student1 = create_student(first_name = "Josh", last_name = "2", 
+                              gender = "Male", image = "Josh.jpeg",
+                              student_number = 6479299892, grade = 11,
+                              email = "joshthegreatsayshi@gmail.com")
+
+    expected = {
+        "first_name": "Josh", "last_name": "2",
+        "gender": "Male", "image": "Josh.jpeg",
+        "student_number": 6479299892, "grade": 11,
+        "email": "joshthegreatsayshi@gmail.com"
+    }
+    assert student1 == expected
+
+    student2 = create_student(first_name = "Linda", last_name = "3",
+                              gender = "Female", image = "Linda.jpeg",
+                              student_number = 123456789, grade = 10,
+                              email = "linda.322@ycdsbk12.ca")
+    assert student2["first_name"] == "Linda"
+    assert student2["student_number"] == 123456789
+    assert student2["email"] == "linda.322@ycdsbk12.ca"
+
+@pytest.mark.skip
 def test_create_assigment():
     assignment1 = markbook.create_assignment(name="Assignment One",
-                                            due="2019-09-21",
-                                            points=100)
+                                             due="2019-09-21",
+                                             points=100)
     expected = {
         "name": "Assignment One",
         "due": "2019-09-21",

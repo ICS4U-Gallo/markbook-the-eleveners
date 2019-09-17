@@ -73,9 +73,6 @@ def add_student_to_classroom(student, classroom):
     pass
 
 
-print(create_student("Joshua", "Chuang", "Male",
-                     "Image", 6479299892, 11,
-                     "joshthegreatsayshi@gmail.com"))
 
 
 def remove_student_from_classroom(student: Dict, classroom: Dict):
