@@ -32,8 +32,9 @@ def create_student(first_name: str, last_name: str,
                    student_number: int, grade: int,
                    email: str) -> Dict:
     """Creates a student dictionary"""
-    return {"first_name": first_name, "last_name": last_name, "gender": gender, "image": image,
-            "student_number": student_number, "grade": grade, "email": email}
+    return {"first_name": first_name, "last_name": last_name,
+            "gender": gender, "image": image, "student_number":
+            student_number, "grade": grade, "email": email}
 
 
 def create_assignment(name: str, due: str, points: int) -> Dict:
@@ -46,16 +47,19 @@ def create_assignment(name: str, due: str, points: int) -> Dict:
     Returns:
         Assignment as a dictionary.
     """
-    return {name, due, points}
+    return {"name": name, "due": due, "points": points}
 
 
-def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
+def create_classroom(course_code: str, course_name: str,
+                     period: int, teacher: str) -> Dict:
     """Creates a classroom dictionary"""
-    return {course_code, course_name, period, teacher}
+    return {"course_code": course_code, "course_name": course_name,
+            "period": period, "teacher": teacher}
 
 
 def calculate_average_mark(student: Dict) -> float:
     """Calculates the average mark of a student"""
+
     return 0
 
 
