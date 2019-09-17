@@ -45,17 +45,21 @@ def test_create_assignment():
     assert assignment2["points"] == 1
 
 
-@pytest.mark.skip
+
 def test_create_classroom():
-    classroom = markbook.create_classroom(course_code="ICS4U",
-                                          course_name="Computer Science",
-                                          period=2,
-                                          teacher="Mr. Gallo")
+    classroom = markbook.create_classroom(course_code = "ICS4U",
+                                          course_name = "Computer Science",
+                                          period = 2,
+                                          teacher = "Mr. Gallo",
+                                          student_list = [],
+                                          assignment_list = [])
     expected = {
         "course_code": "ICS4U",
         "course_name": "Computer Science",
         "period": 2,
-        "teacher": "Mr. Gallo"
+        "teacher": "Mr. Gallo",
+        "student_list": [],
+        "assignment_list": []
     }
 
     # The classroom needs to be a dictionary identical to the expected
