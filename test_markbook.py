@@ -99,7 +99,7 @@ def test_add_student_to_classroom():
     assert len(classroom["student_list"]) == 1
 
 
-@pytest.mark.skip
+
 def test_remove_student_from_classroom():
     """
     Dependencies:
@@ -109,7 +109,9 @@ def test_remove_student_from_classroom():
     classroom = markbook.create_classroom(course_code="ICS4U",
                                           course_name="Computer Science",
                                           period=2,
-                                          teacher="Mr. Gallo")
+                                          teacher="Mr. Gallo",
+                                          student_list = [],
+                                          assignment_list = [])
     student = {"first_name": "John", "last_name": "Smith"}
 
     markbook.add_student_to_classroom(student, classroom)
