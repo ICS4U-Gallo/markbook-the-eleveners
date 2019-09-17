@@ -62,7 +62,7 @@ def create_classroom(course_code: str, course_name: str,
 def calculate_average_mark(student: Dict) -> float:
     """Calculates the average mark of a student"""
 
-    return 0
+    return sum(student["marks"]) / len(student["marks"])
 
 
 def add_student_to_classroom(student, classroom):

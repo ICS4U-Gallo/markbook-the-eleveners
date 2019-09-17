@@ -71,7 +71,7 @@ def test_create_classroom():
     assert classroom["assignment_list"] == []
 
 
-@pytest.mark.skip
+
 def test_calculate_average_mark():
     student = {
         "marks": [50, 100]
