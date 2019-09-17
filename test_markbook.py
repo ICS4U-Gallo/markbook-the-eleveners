@@ -25,7 +25,7 @@ def test_create_student():
     assert student2["student_number"] == 123456789
     assert student2["email"] == "linda.322@ycdsbk12.ca"
 
-@pytest.mark.skip()
+
 def test_create_assignment():
     assignment1 = markbook.create_assignment(name="Assignment One",
                                              due="2019-09-21",
