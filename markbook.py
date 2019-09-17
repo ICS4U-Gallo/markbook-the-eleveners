@@ -72,9 +72,8 @@ def add_student_to_classroom(student, classroom):
         student: Student dict
         classroom: The classroom to add the student to
     """
-    classroom["student_list"].append(student["first_name"] + student["last_name"])
+    classroom["student_list"].append("{} {}".format(student["first_name"], student["last_name"]))
     pass
-
 
 
 
@@ -85,7 +84,7 @@ def remove_student_from_classroom(student: Dict, classroom: Dict):
         student: The student to be removed
         classroom: the class from which the student will be removed.
     """
-    classroom["student_list"].remove(student["first_name"] + student["last_name"])
+    classroom["student_list"].remove("{} {}".format(student["first_name"], student["last_name"]))
     pass
 
 
@@ -93,9 +92,11 @@ def edit_student(student: Dict, **kwargs: Dict):
     """Edits the student's info with the provided key/value pairs
 
     Args:
-        student: The student whose data needs to be udated.
+        student: The student whose data needs to be updated.
         **kwargs: KeyWordARGumentS. The key/value pairs of the
             data that needs to be changed. Can come in the form
             of a dictionary.
     """
+    for data in kwargs.keys():
+        student[data] = kwargs[data]
     pass
