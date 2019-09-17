@@ -37,6 +37,7 @@ def create_student(first_name: str, last_name: str,
             student_number, "grade": grade, "email": email}
 
 
+
 def create_assignment(name: str, due: str, points: int) -> Dict:
     """Creates an assignment represented as a dictionary
 
@@ -50,6 +51,7 @@ def create_assignment(name: str, due: str, points: int) -> Dict:
     return {"name": name, "due": due, "points": points}
 
 
+
 def create_classroom(course_code: str, course_name: str,
                      period: int, teacher: str) -> Dict:
     """Creates a classroom dictionary"""
@@ -59,10 +61,12 @@ def create_classroom(course_code: str, course_name: str,
             "student_list": [], "assignment_list": []}
 
 
+
 def calculate_average_mark(student: Dict) -> float:
     """Calculates the average mark of a student"""
 
     return sum(student["marks"]) / len(student["marks"])
+
 
 
 def add_student_to_classroom(student, classroom):
@@ -73,7 +77,6 @@ def add_student_to_classroom(student, classroom):
         classroom: The classroom to add the student to
     """
     classroom["student_list"].append("{} {}".format(student["first_name"], student["last_name"]))
-    pass
 
 
 
@@ -85,7 +88,7 @@ def remove_student_from_classroom(student: Dict, classroom: Dict):
         classroom: the class from which the student will be removed.
     """
     classroom["student_list"].remove("{} {}".format(student["first_name"], student["last_name"]))
-    pass
+
 
 
 def edit_student(student: Dict, **kwargs: Dict):
@@ -99,4 +102,3 @@ def edit_student(student: Dict, **kwargs: Dict):
     """
     for data in kwargs.keys():
         student[data] = kwargs[data]
-    pass
