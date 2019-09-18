@@ -101,11 +101,11 @@ def edit_student(student: Dict, **kwargs: Dict):
 
 
 while True:
-    print("Hello, what would you like to do?")
+    print("\nHello, what would you like to do?")
 
     try:
         selection = int(input(
-            "\n [0] Create Student\n [1] Create Assignment\n [2] Create Classroom\n [3] Calculate Average Mark\n [4] Add Student To Classroom\n [5] Remove Student From Classroom\n [6] Edit Student\n "))
+            "\n [0] Create Student\n [1] Create Classroom\n [2] Create Assignment\n [3] Calculate Average Mark\n [4] Add Student To Classroom\n [5] Remove Student From Classroom\n [6] Edit Student\n "))
     except:
         print("Please enter a number from the selection above.\n")
     else:
@@ -128,18 +128,6 @@ while True:
             print(student)
 
         elif selection == 1:
-            print("Create Assignment\n")
-
-            name = str(input("Enter the assignment title: "))
-            due = str(input("Enter the due date: "))
-            points = int(
-                input("Enter how many points the assignment is worth: "))
-
-            assignment = create_assignment(name, due, points)
-
-            print(assignment)
-
-        elif selection == 2:
             print("Create Classroom\n")
 
             course_code = str(input("Enter the course code: "))
@@ -151,6 +139,18 @@ while True:
                 course_code, course_name, period, teacher)
 
             print(classroom)
+
+        elif selection == 2:
+            print("Create Assignment\n")
+
+            name = str(input("Enter the assignment title: "))
+            due = str(input("Enter the due date: "))
+            points = int(
+                input("Enter how many points the assignment is worth: "))
+
+            assignment = create_assignment(name, due, points)
+
+            print(assignment)
 
         elif selection == 3:
             pass
