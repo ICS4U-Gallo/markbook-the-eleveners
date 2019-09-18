@@ -118,15 +118,26 @@ while True:
 
             name = str(input("Enter the assignment title: "))
             due = str(input("Enter the due date: "))
-            points = int(input("Enter how many points the assignment is worth: "))
+            points = int(
+                input("Enter how many points the assignment is worth: "))
 
             assignment = create_assignment(name, due, points)
 
             print(assignment)
 
-
         elif selection == 2:
+            # print("Create Classroom\n")
+
+            # course_code = str(input("Enter the course code: "))
+            # course_name = str(input("Enter the course name: "))
+            # period = int(input("Enter the period of the class: "))
+            # teacher = str(input("Enter the name of the teacher: "))
+
+            # classroom = create_classroom(course_code, course_name, period, teacher)
+
+            # print(classroom)
             pass
+
         elif selection == 3:
             pass
         elif selection == 4:
