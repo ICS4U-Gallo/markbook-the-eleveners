@@ -101,4 +101,5 @@ def edit_student(student: Dict, **kwargs: Dict):
 
 
 while True:
-    int(input("\n Create Student[0]\n Create Assignment[1]\n Create Classroom[2]\n Calculate Average Mark[3]\n Add Student To Classroom[4]\n Remove Student From Classroom[5]\n Edit Student[6]"))
+    user_input = int(input(
+        "\n Create Student[0]\n CreateAssignment[1]\n Create Classroom[2]\n Calculate Average Mark[3]\n Add Student To Classroom[4]\n Remove Student From Classroom[5]\n Edit Student[6]"))
