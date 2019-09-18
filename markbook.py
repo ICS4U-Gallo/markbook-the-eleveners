@@ -106,12 +106,24 @@ while True:
     try:
         selection = int(input("\n Create Student[0]\n Create Assignment[1]\n Create Classroom[2]\n Calculate Average Mark[3]\n Add Student To Classroom[4]\n Remove Student From Classroom[5]\n Edit Student[6]\n "))
     except:
-        print("Please enter a number from the selection above.")
+        print("Please enter a number from the selection above.\n")
     else:
-        print("processing request...")
+        print("processing request...\n")
 
         if selection == 0:
-            pass
+            print("Create Student\n")
+
+            first_name = str(input("Enter the student's first name: "))
+            last_name = str(input("Enter the student's last name: "))
+            gender = str(input("Enter the student's gender: "))
+            image = str(input("Enter the student's image: "))
+            student_number = int(input("Enter the student's student number: "))
+            grade = int(input("Enter the student's grade: "))
+            email = str(input("Enter student's email: "))
+            
+            student = create_student(first_name, last_name, gender, image, 
+                                     student_number, grade, email)
+
         elif selection == 1:
             pass
         elif selection == 2:
