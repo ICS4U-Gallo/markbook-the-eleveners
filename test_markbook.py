@@ -5,9 +5,9 @@ import markbook
 
 def test_create_student():
     student1 = markbook.create_student(first_name = "Josh", last_name = "2", 
-                              gender = "Male", image = "Josh.jpeg",
-                              student_number = 6479299892, grade = 11,
-                              email = "joshthegreatsayshi@gmail.com")
+                                       gender = "Male", image = "Josh.jpeg",
+                                       student_number = 6479299892, grade = 11,
+                                       email = "joshthegreatsayshi@gmail.com")
 
     expected = {
         "first_name": "Josh", "last_name": "2",
@@ -18,9 +18,9 @@ def test_create_student():
     assert student1 == expected
 
     student2 = markbook.create_student(first_name = "Linda", last_name = "3",
-                              gender = "Female", image = "Linda.jpeg",
-                              student_number = 123456789, grade = 10,
-                              email = "linda.322@ycdsbk12.ca")
+                                       gender = "Female", image = "Linda.jpeg",
+                                       student_number = 123456789, grade = 10,
+                                       email = "linda.322@ycdsbk12.ca")
     assert student2["first_name"] == "Linda"
     assert student2["student_number"] == 123456789
     assert student2["email"] == "linda.322@ycdsbk12.ca"
