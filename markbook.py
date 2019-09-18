@@ -105,7 +105,7 @@ while True:
 
     try:
         selection = int(input(
-            "\n Create Student[0]\n Create Assignment[1]\n Create Classroom[2]\n Calculate Average Mark[3]\n Add Student To Classroom[4]\n Remove Student From Classroom[5]\n Edit Student[6]\n "))
+            "\n [0] Create Student\n [1] Create Assignment\n [2] Create Classroom\n [3] Calculate Average Mark\n [4] Add Student To Classroom\n [5] Remove Student From Classroom\n [6] Edit Student\n "))
     except:
         print("Please enter a number from the selection above.\n")
     else:
@@ -121,9 +121,11 @@ while True:
             student_number = int(input("Enter the student's student number: "))
             grade = int(input("Enter the student's grade: "))
             email = str(input("Enter student's email: "))
-            
-            student = create_student(first_name, last_name, gender, image, 
+
+            student = create_student(first_name, last_name, gender, image,
                                      student_number, grade, email)
+
+            print(student)
 
         elif selection == 1:
             print("Create Assignment\n")
@@ -138,22 +140,25 @@ while True:
             print(assignment)
 
         elif selection == 2:
-            # print("Create Classroom\n")
+            print("Create Classroom\n")
 
-            # course_code = str(input("Enter the course code: "))
-            # course_name = str(input("Enter the course name: "))
-            # period = int(input("Enter the period of the class: "))
-            # teacher = str(input("Enter the name of the teacher: "))
+            course_code = str(input("Enter the course code: "))
+            course_name = str(input("Enter the course name: "))
+            period = int(input("Enter the period of the class: "))
+            teacher = str(input("Enter the name of the teacher: "))
 
-            # classroom = create_classroom(course_code, course_name, period, teacher)
+            classroom = create_classroom(
+                course_code, course_name, period, teacher)
 
-            # print(classroom)
-            pass
+            print(classroom)
 
         elif selection == 3:
             pass
         elif selection == 4:
+            print("Add Student to Classroom\n")
+
             pass
+
         elif selection == 5:
             pass
         elif selection == 6:
