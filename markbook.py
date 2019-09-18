@@ -101,4 +101,26 @@ def edit_student(student: Dict, **kwargs: Dict):
 
 
 while True:
-    int(input("\n Create Student[0]\n Create Assignment[1]\n Create Classroom[2]\n Calculate Average Mark[3]\n Add Student To Classroom[4]\n Remove Student From Classroom[5]\n Edit Student[6]"))
+    print("Hello, what would you like to do?")
+    
+    try:
+        selection = int(input("\n Create Student[0]\n Create Assignment[1]\n Create Classroom[2]\n Calculate Average Mark[3]\n Add Student To Classroom[4]\n Remove Student From Classroom[5]\n Edit Student[6]\n "))
+    except:
+        print("Please enter a number from the selection above.")
+    else:
+        print("processing request...")
+
+        if selection == 0:
+            pass
+        elif selection == 1:
+            pass
+        elif selection == 2:
+            pass
+        elif selection == 3:
+            pass
+        elif selection == 4:
+            pass
+        elif selection == 5:
+            pass
+        elif selection == 6:
+            pass
