@@ -3,6 +3,7 @@ Markbook Application
 Group members: Joshua, Joseph
 """
 from typing import Dict
+import json
 
 # Students:
 # first_name: str
@@ -113,7 +114,8 @@ while True:
     print("\nHello, what would you like to do?")
 
     try:
-        selection = int(input("\n [0] Create Student\n [1] Create Classroom\n [2] Add Student To Classroom\n [3] Create Assignment\n [4] Calculate Average Mark\n [5] Remove Student From Classroom\n [6] Edit Student\n "))
+        selection = int(input(
+            "\n [0] Create Student\n [1] Create Classroom\n [2] Add Student To Classroom\n [3] Create Assignment\n [4] Calculate Average Mark\n [5] Remove Student From Classroom\n [6] Edit Student\n "))
     except:
         print("Please enter a number from the selection above.\n")
     else:
@@ -131,7 +133,10 @@ while True:
             email = str(input("Enter student's email: "))
 
             student_Data[f"{first_name} {last_name}"] = create_student(first_name, last_name, gender, image,
-                                            student_number, grade, email)
+                                                                       student_number, grade, email)
+
+            with open("data.json", "w") as f:
+                json.dump(student_Data, f)
 
             print(student_Data)
 
@@ -143,18 +148,24 @@ while True:
             period = int(input("Enter the period of the class: "))
             teacher = str(input("Enter the name of the teacher: "))
 
-            classroom_Data[course_code] = create_classroom(course_code, course_name, period, teacher)
+            classroom_Data[course_code] = create_classroom(
+                course_code, course_name, period, teacher)
+
+            with open("data.json", "w")as f:
+                json.dump(classroom_Data, f)
 
             print(classroom_Data)
 
         elif selection == 2:
             while True:
-                student = input("Which student would you like to change classes? (First and last name)\n")
+                student = input(
+                    "Which student would you like to change classes? (First and last name)\n")
                 if student in student_Data.keys():
                     break
-            
+
             while True:
-                selected_class = input(f"\nWhich class would you like to put {student}? (Course code)\n")
+                selected_class = input(
+                    f"\nWhich class would you like to put {student}? (Course code)\n")
                 if selected_class in classroom_Data.keys():
                     if student in classroom_Data[selected_class]["student_list"]:
                         print(f"\n{student} is already in this class.")
@@ -164,13 +175,16 @@ while True:
                         break
 
             while True:
-                confirmation = input(f"\nAre you sure you want to put {student} in {selected_class} with {teacher} for period {period_num}?\n[Y]Yes [N]No\n")
+                confirmation = input(
+                    f"\nAre you sure you want to put {student} in {selected_class} with {teacher} for period {period_num}?\n[Y]Yes [N]No\n")
                 if confirmation == "Y":
-                    classroom_Data[selected_class]["student_list"].append(student)
+                    classroom_Data[selected_class]["student_list"].append(
+                        student)
                     print("\nStudent added to classroom.")
                     break
                 elif confirmation == "N":
-                    secondary_confirmation = input("\nWould you like to discard changes?\n[Y]Yes [N]No\n")
+                    secondary_confirmation = input(
+                        "\nWould you like to discard changes?\n[Y]Yes [N]No\n")
                     if secondary_confirmation == "Y":
                         print("\nDiscarding changes...")
                         break
