@@ -105,91 +105,143 @@ def edit_student(student: Dict, **kwargs: Dict):
         student[data] = kwargs[data]
 
 
+
+
 student_Data = {}
 classroom_Data = {}
 
+print("\nHello, what would you like to do?")
 
 while True:
-    print("\nHello, what would you like to do?")
-
     try:
-        selection = int(input("\n [0] Create Student\n [1] Create Classroom\n [2] Add Student To Classroom\n [3] Create Assignment\n [4] Calculate Average Mark\n [5] Remove Student From Classroom\n [6] Edit Student\n "))
+        category = int(input("\n [0] Create new information\n [1] Edit current information\n [2] Delete/Remove information\n [3] Preview saved information\n"))
     except:
-        print("Please enter a number from the selection above.\n")
+        print("Please enter a number from the categories above.\n")
     else:
-        print("processing request...\n")
-
-        if selection == 0:
-            print("Create Student\n")
-
-            first_name = str(input("Enter the student's first name: "))
-            last_name = str(input("Enter the student's last name: "))
-            gender = str(input("Enter the student's gender: "))
-            image = str(input("Enter the student's image: "))
-            student_number = int(input("Enter the student's student number: "))
-            grade = int(input("Enter the student's grade: "))
-            email = str(input("Enter student's email: "))
-
-            student_Data[f"{first_name} {last_name}"] = create_student(first_name, last_name, gender, image,
-                                            student_number, grade, email)
-
-            print(student_Data)
-
-        elif selection == 1:
-            print("Create Classroom\n")
-
-            course_code = str(input("Enter the course code: "))
-            course_name = str(input("Enter the course name: "))
-            period = int(input("Enter the period of the class: "))
-            teacher = str(input("Enter the name of the teacher: "))
-
-            classroom_Data[course_code] = create_classroom(course_code, course_name, period, teacher)
-
-            print(classroom_Data)
-
-        elif selection == 2:
+        if category not in range(0, 4):
+            print("Please enter a number from the categories above.\n")
+        elif category == 0:
             while True:
-                student = input("Which student would you like to change classes? (First and last name)\n")
-                if student in student_Data.keys():
-                    break
-            
-            while True:
-                selected_class = input(f"\nWhich class would you like to put {student}? (Course code)\n")
-                if selected_class in classroom_Data.keys():
-                    if student in classroom_Data[selected_class]["student_list"]:
-                        print(f"\n{student} is already in this class.")
-                    else:
-                        teacher = classroom_Data[selected_class]["teacher"]
-                        period_num = classroom_Data[selected_class]["period"]
+                try:
+                    selection = int(input("\n [0] Create Student\n [1] Create Classroom\n [2] Create Assignment\n [3] Back\n"))
+                except:
+                    print("Please enter a number from the selection above.\n")
+                else:
+                    if selection not in range(0, 4):
+                        print("Please enter a number from the selection above. \n")
+                    
+                    elif selection == 0:
+                        print("Create Student\n")
+
+                        first_name = str(input("Enter the student's first name: "))
+                        last_name = str(input("Enter the student's last name: "))
+                        gender = str(input("Enter the student's gender: "))
+                        image = str(input("Enter the student's image: "))
+                        student_number = int(input("Enter the student's student number: "))
+                        grade = int(input("Enter the student's grade: "))
+                        email = str(input("Enter student's email: "))
+
+                        student_Data[f"{first_name} {last_name}"] = create_student(first_name, last_name, gender, image,
+                                                        student_number, grade, email)
+
+                        print(student_Data)
+
+                    elif selection == 1:
+                        print("Create Classroom\n")
+
+                        course_code = str(input("Enter the course code: "))
+                        course_name = str(input("Enter the course name: "))
+                        period = int(input("Enter the period of the class: "))
+                        teacher = str(input("Enter the name of the teacher: "))
+
+                        classroom_Data[course_code] = create_classroom(course_code, course_name, period, teacher)
+
+                        print(classroom_Data)
+
+                    elif selection == 2:
+                        print("Create Assignment\n")
+
+                        name = str(input("Enter the assignment title: "))
+                        due = str(input("Enter the due date: "))
+                        points = int(
+                            input("Enter how many points the assignment is worth: "))
+
+                        assignment = create_assignment(name, due, points)
+
+                        print(assignment)
+                    
+                    elif selection == 3:
                         break
 
+        elif category == 1:
             while True:
-                confirmation = input(f"\nAre you sure you want to put {student} in {selected_class} with {teacher} for period {period_num}?\n[Y]Yes [N]No\n")
-                if confirmation == "Y":
-                    classroom_Data[selected_class]["student_list"].append(student)
-                    print("\nStudent added to classroom.")
-                    break
-                elif confirmation == "N":
-                    secondary_confirmation = input("\nWould you like to discard changes?\n[Y]Yes [N]No\n")
-                    if secondary_confirmation == "Y":
-                        print("\nDiscarding changes...")
+                try:
+                    selection = int(input("\n [0] Add Student to Classroom\n [1] Edit Student\n [2] Back\n"))
+                except:
+                    print("Please enter a number from the selection above.\n")
+                else:
+                    if selection not in range(0, 3):
+                        print("Please enter a number from the selection above. \n")
+
+                    elif selection == 0:
+                        while True:
+                            student = input("Which student would you like to change classes? (First and last name)\n")
+                            if student in student_Data.keys():
+                                break
+                        
+                        while True:
+                            selected_class = input(f"\nWhich class would you like to put {student}? (Course code)\n")
+                            if selected_class in classroom_Data.keys():
+                                if student in classroom_Data[selected_class]["student_list"]:
+                                    print(f"\n{student} is already in this class.")
+                                else:
+                                    teacher = classroom_Data[selected_class]["teacher"]
+                                    period_num = classroom_Data[selected_class]["period"]
+                                    break
+
+                        while True:
+                            confirmation = input(f"\nAre you sure you want to put {student} in {selected_class} with {teacher} for period {period_num}?\n[Y]Yes [N]No\n")
+                            if confirmation == "Y":
+                                classroom_Data[selected_class]["student_list"].append(student)
+                                print("\nStudent added to classroom.")
+                                break
+                            elif confirmation == "N":
+                                secondary_confirmation = input("\nWould you like to discard changes?\n[Y]Yes [N]No\n")
+                                if secondary_confirmation == "Y":
+                                    print("\nDiscarding changes...")
+                                    break
+        
+                    elif selection == 1:
+                        pass
+                    elif selection == 2:
                         break
 
-        elif selection == 3:
-            print("Create Assignment\n")
+        elif category == 2:
+            while True:
+                try:
+                    selection = int(input("\n [0] Remove Student From Classroom\n [1] Back\n"))
+                except:
+                    print("Please enter a number from the selection above.\n")
+                else:
+                    if selection not in range(0, 2):
+                        print("Please enter a number from the selection above. \n")
+                    elif selection == 0:
+                        pass
+                    elif selection == 1:
+                        break
 
-            name = str(input("Enter the assignment title: "))
-            due = str(input("Enter the due date: "))
-            points = int(
-                input("Enter how many points the assignment is worth: "))
-
-            assignment = create_assignment(name, due, points)
-
-            print(assignment)
-
-        elif selection == 4:
-            pass
-        elif selection == 5:
-            pass
-        elif selection == 6:
-            pass
+        elif category == 3:
+            while True:
+                try:
+                    selection = int(input("\n [0] Student List\n [1] Classroom List\n [2] Back\n"))
+                except:
+                    print("Please enter a number from the selection above.\n")
+                else:
+                    if selection not in range(0, 3):
+                        print("Please enter a number from the selection above. \n")
+                    elif selection == 0:
+                        pass
+                    elif selection == 1:
+                        pass
+                    elif selection == 2:
+                        break
