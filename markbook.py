@@ -233,7 +233,7 @@ while True:
         elif category == 3:
             while True:
                 try:
-                    selection = int(input("\n [0] Student List\n [1] Classroom List\n [2] Back\n"))
+                    selection = int(input("\n [0] Student List\n [1] Classroom List\n [2] Class Average Mark [3] Back\n"))
                 except:
                     print("Please enter a number from the selection above.\n")
                 else:
@@ -244,4 +244,6 @@ while True:
                     elif selection == 1:
                         pass
                     elif selection == 2:
+                        pass
+                    elif selection == 3:
                         break
