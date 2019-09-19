@@ -116,19 +116,19 @@ while True:
     try:
         category = int(input("\n [0] Create new information\n [1] Edit current information\n [2] Delete/Remove information\n [3] Preview saved information\n"))
     except:
-        print("Please enter a number from the categories above.\n")
+        print("\nPlease enter a number from the categories below.")
     else:
         if category not in range(0, 4):
-            print("Please enter a number from the categories above.\n")
+            print("\nPlease enter a number from the categories below.")
         elif category == 0:
             while True:
                 try:
                     selection = int(input("\n [0] Create Student\n [1] Create Classroom\n [2] Create Assignment\n [3] Back\n"))
                 except:
-                    print("Please enter a number from the selection above.\n")
+                    print("\nPlease enter a number from the selection above.")
                 else:
                     if selection not in range(0, 4):
-                        print("Please enter a number from the selection above. \n")
+                        print("\nPlease enter a number from the selection above.")
                     
                     elif selection == 0:
                         print("Create Student\n")
@@ -178,10 +178,10 @@ while True:
                 try:
                     selection = int(input("\n [0] Add Student to Classroom\n [1] Edit Student\n [2] Back\n"))
                 except:
-                    print("Please enter a number from the selection above.\n")
+                    print("\nPlease enter a number from the selection above.")
                 else:
                     if selection not in range(0, 3):
-                        print("Please enter a number from the selection above. \n")
+                        print("\nPlease enter a number from the selection above.")
 
                     elif selection == 0:
                         while True:
@@ -221,10 +221,10 @@ while True:
                 try:
                     selection = int(input("\n [0] Remove Student From Classroom\n [1] Back\n"))
                 except:
-                    print("Please enter a number from the selection above.\n")
+                    print("\nPlease enter a number from the selection above.")
                 else:
                     if selection not in range(0, 2):
-                        print("Please enter a number from the selection above. \n")
+                        print("\nPlease enter a number from the selection above.")
                     elif selection == 0:
                         pass
                     elif selection == 1:
@@ -235,10 +235,10 @@ while True:
                 try:
                     selection = int(input("\n [0] Student List\n [1] Classroom List\n [2] Class Average Mark [3] Back\n"))
                 except:
-                    print("Please enter a number from the selection above.\n")
+                    print("\nPlease enter a number from the selection above.")
                 else:
                     if selection not in range(0, 3):
-                        print("Please enter a number from the selection above. \n")
+                        print("\nPlease enter a number from the selection above.")
                     elif selection == 0:
                         pass
                     elif selection == 1:
