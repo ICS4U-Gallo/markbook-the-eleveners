@@ -170,7 +170,7 @@ while True:
                     print("\nStudent added to classroom.")
                     break
                 elif confirmation == "N":
-                    secondary_confirmation = input("\nWould you like to discard changes?)\n[Y]Yes [N]No\n")
+                    secondary_confirmation = input("\nWould you like to discard changes?\n[Y]Yes [N]No\n")
                     if secondary_confirmation == "Y":
                         print("\nDiscarding changes...")
                         break
