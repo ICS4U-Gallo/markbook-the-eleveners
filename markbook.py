@@ -114,11 +114,11 @@ print("\nHello, what would you like to do?")
 
 while True:
     try:
-        category = int(input("\n [0] Create new information\n [1] Edit current information\n [2] Delete/Remove information\n [3] Preview saved information\n"))
+        category = int(input("\n [0] Create new information\n [1] Edit current information\n [2] Delete/Remove information\n [3] Preview saved information\n [4] Exit\n"))
     except:
         print("\nPlease enter a number from the categories below.")
     else:
-        if category not in range(0, 4):
+        if category not in range(0, 5):
             print("\nPlease enter a number from the categories below.")
         elif category == 0:
             while True:
@@ -247,3 +247,18 @@ while True:
                         pass
                     elif selection == 3:
                         break
+        elif category == 4:
+            while True:
+                save = input("Would you like to save the changes?\n[Y] Yes [N] No\n")
+                if save == "Y":
+                    print("Saving files...")
+                    # adding to JSON file
+                    exit()
+                elif save == "N":
+                    while True:
+                        secondary_confirmation = input("Are you sure you want to discard all the changes?\n[Y] Yes [N] No\n")
+                        if secondary_confirmation == "Y":
+                            print("Discarding changes")
+                            exit()
+                        elif secondary_confirmation == "N":
+                            break
