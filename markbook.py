@@ -261,7 +261,7 @@ while True:
                                             change = input(f"What would you like to change {student}'s last name to?\n")
                                             confirmation = input(f"Are you sure you want to change {student}'s last name to?\n[Y]Yes [N]No\n").upper()
                                             if confirmation == "Y":
-                                                student_Data[student]["last_name"] = change
+                                                data["student_Data"][student]["last_name"] = change
                                                 print("Successfully changed.")
                                             elif confirmation == "N":
                                                 break
@@ -271,7 +271,7 @@ while True:
                                             change = input(f"What would you like to change {student}'s gender to?\n")
                                             confirmation = input(f"Are you sure you want to change {student}'s gender to {change}?\n[Y]Yes [N]No\n").upper()
                                             if confirmation == "Y":
-                                                student_Data[student]["gender"] = change
+                                                data["student_Data"][student]["gender"] = change
                                                 print("Successfully changed.")
                                             elif confirmation == "N":
                                                 break
@@ -281,7 +281,7 @@ while True:
                                             change = input(f"What would you like to change {student}'s image to?\n")
                                             confirmation = input(f"Are you sure you want to change {student}'s image to {change}?\n[Y]Yes [N]No\n").upper()
                                             if confirmation == "Y":
-                                                student_Data[student]["image"] = change
+                                                data["student_Data"][student]["image"] = change
                                                 print("Successfully changed.")
                                             elif confirmation == "N":
                                                 break
@@ -291,7 +291,7 @@ while True:
                                             change = input(f"What would you like to change {student}'s student number to?\n")
                                             confirmation = input(f"Are you sure you want to change {student}'s student number to {change}?\n[Y]Yes [N]No\n").upper()
                                             if confirmation == "Y":
-                                                student_Data[student]["student_number"] = change
+                                                data["student_Data"][student]["student_number"] = change
                                                 print("Successfully changed.")
                                             elif confirmation == "N":
                                                 break
@@ -301,7 +301,7 @@ while True:
                                             change = input(f"What would you like to change {student}'s grade to?\n")
                                             confirmation = input(f"Are you sure you want to change {student}'s grade to {change}?\n[Y]Yes [N]No\n").upper()
                                             if confirmation == "Y":
-                                                student_Data[student]["grade"] = change
+                                                data["student_Data"][student]["grade"] = change
                                                 print("Successfully changed.")
                                             elif confirmation == "N":
                                                 break
@@ -311,7 +311,7 @@ while True:
                                             change = input(f"What would you like to change {student}'s enail to?\n")
                                             confirmation = input(f"Are you sure you want to change {student}'s email to {change}?\n[Y]Yes [N]No\n").upper()
                                             if confirmation == "Y":
-                                                student_Data[student]["email"] = change
+                                                data["student_Data"][student]["email"] = change
                                                 print("Successfully changed.")
                                             elif confirmation == "N":
                                                 break
