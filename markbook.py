@@ -123,7 +123,7 @@ while True:
         elif category == 0:
             while True:
                 try:
-                    selection = int(input("\n [0] Create Student\n [1] Create Classroom\n [2] Create Assignment\n [3] Back\n"))
+                    selection = int(input("\n [0] Register Student\n [1] Create Classroom\n [2] Create Assignment\n [3] Back\n"))
                 except:
                     print("\nPlease enter a number from the selection above.")
                 else:
@@ -131,7 +131,7 @@ while True:
                         print("\nPlease enter a number from the selection above.")
                     
                     elif selection == 0:
-                        print("Create Student\n")
+                        print("Register Student\n")
 
                         first_name = str(input("Enter the student's first name: "))
                         last_name = str(input("Enter the student's last name: "))
@@ -212,7 +212,40 @@ while True:
                                     break
         
                     elif selection == 1:
-                        pass
+                        while True:
+                            student = input("\nWhich student's information would you like to change? (First name and last name)\n")
+                            if student in student_Data.keys():
+                                break
+                            else:
+                                print("\nPlease enter a registered student.\n")
+
+                        while True:
+                            try:
+                                selection = int(input("What would you like to change?\n [0] First Name\n [1] Last Name\n [3] Gender\n [4] Image\n [5] Student Number\n [6] Grade\n [7] Email\n [8] Display Current Info\n"))
+                            except:
+                                print("Please enter a number from the selection above.\n")
+                            else:
+                                if selection not in range(0, 9):
+                                    print("Please enter a number from the selection above.\n")
+                                elif selection == 0:
+                                    pass
+                                elif selection == 1:
+                                    pass
+                                elif selection == 2:
+                                    pass
+                                elif selection == 3:
+                                    pass
+                                elif selection == 4:
+                                    pass
+                                elif selection == 5:
+                                    pass
+                                elif selection == 6:
+                                    pass
+                                elif selection == 7:
+                                    pass
+                                elif selection == 8:
+                                    pass
+
                     elif selection == 2:
                         break
 
