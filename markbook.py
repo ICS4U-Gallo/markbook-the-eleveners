@@ -165,8 +165,7 @@ while True:
 
                         name = str(input("Enter the assignment title: "))
                         due = str(input("Enter the due date: "))
-                        points = int(
-                            input("Enter how many points the assignment is worth: "))
+                        points = int(input("Enter how many points the assignment is worth: "))
 
                         assignment = create_assignment(name, due, points)
 
@@ -224,7 +223,7 @@ while True:
 
                             while True:
                                 try:
-                                    selection = int(input("What would you like to change?\n [0] First Name\n [1] Last Name\n [3] Gender\n [4] Image\n [5] Student Number\n [6] Grade\n [7] Email\n [8] Display Current Info\n"))
+                                    selection = int(input("What would you like to change?\n [0] First Name\n [1] Last Name\n [2] Gender\n [3] Image\n [4] Student Number\n [5] Grade\n [6] Email\n [7] Display Current Info\n"))
                                 except:
                                     print("Please enter a number from the selection above.\n")
                                 else:
@@ -232,7 +231,7 @@ while True:
                                         print("Please enter a number from the selection above.\n")
                                     elif selection == 0:
                                         while True:
-                                            change = input(f"What would you like to change {student} first name to?\n")
+                                            change = input(f"What would you like to change {student}'s first name to?\n")
                                             confirmation = input(f"Are you sure you want to change {student}'s first name to {change}?\n[Y]Yes [N]No\n").upper()
                                             if confirmation == "Y":
                                                 student_Data[student]["first_name"] = change
@@ -242,21 +241,68 @@ while True:
 
 
                                     elif selection == 1:
-                                        pass
+                                        while True:
+                                            change = input(f"What would you like to change {student}'s last name to?\n")
+                                            confirmation = input(f"Are you sure you want to change {student}'s last name to?\n[Y]Yes [N]No\n").upper()
+                                            if confirmation == "Y":
+                                                student_Data[student]["last_name"] = change
+                                                print("Successfully changed.")
+                                            elif confirmation == "N":
+                                                break
+
                                     elif selection == 2:
-                                        pass
+                                        while True:
+                                            change = input(f"What would you like to change {student}'s gender to?\n")
+                                            confirmation = input(f"Are you sure you want to change {student}'s gender to {change}?\n[Y]Yes [N]No\n").upper()
+                                            if confirmation == "Y":
+                                                student_Data[student]["gender"] = change
+                                                print("Successfully changed.")
+                                            elif confirmation == "N":
+                                                break
+
                                     elif selection == 3:
-                                        pass
+                                        while True:
+                                            change = input(f"What would you like to change {student}'s image to?\n")
+                                            confirmation = input(f"Are you sure you want to change {student}'s image to {change}?\n[Y]Yes [N]No\n").upper()
+                                            if confirmation == "Y":
+                                                student_Data[student]["image"] = change
+                                                print("Successfully changed.")
+                                            elif confirmation == "N":
+                                                break
+
                                     elif selection == 4:
-                                        pass
+                                        while True:
+                                            change = input(f"What would you like to change {student}'s student number to?\n")
+                                            confirmation = input(f"Are you sure you want to change {student}'s student number to {change}?\n[Y]Yes [N]No\n").upper()
+                                            if confirmation == "Y":
+                                                student_Data[student]["student_number"] = change
+                                                print("Successfully changed.")
+                                            elif confirmation == "N":
+                                                break
+
                                     elif selection == 5:
-                                        pass
+                                        while True:
+                                            change = input(f"What would you like to change {student}'s grade to?\n")
+                                            confirmation = input(f"Are you sure you want to change {student}'s grade to {change}?\n[Y]Yes [N]No\n").upper()
+                                            if confirmation == "Y":
+                                                student_Data[student]["grade"] = change
+                                                print("Successfully changed.")
+                                            elif confirmation == "N":
+                                                break
+
                                     elif selection == 6:
-                                        pass
+                                        while True:
+                                            change = input(f"What would you like to change {student}'s enail to?\n")
+                                            confirmation = input(f"Are you sure you want to change {student}'s email to {change}?\n[Y]Yes [N]No\n").upper()
+                                            if confirmation == "Y":
+                                                student_Data[student]["email"] = change
+                                                print("Successfully changed.")
+                                            elif confirmation == "N":
+                                                break
+
                                     elif selection == 7:
-                                        pass
-                                    elif selection == 8:
-                                        pass
+                                        
+
                         else:
                             print("\nThere are currently no registered students.")
 
