@@ -107,6 +107,8 @@ def edit_student(student: Dict, **kwargs: Dict):
 
 
 
+
+
 student_Data = {}
 classroom_Data = {}
 
@@ -200,13 +202,13 @@ while True:
                                     break
 
                         while True:
-                            confirmation = input(f"\nAre you sure you want to put {student} in {selected_class} with {teacher} for period {period_num}?\n[Y]Yes [N]No\n")
+                            confirmation = input(f"\nAre you sure you want to put {student} in {selected_class} with {teacher} for period {period_num}?\n[Y]Yes [N]No\n").upper()
                             if confirmation == "Y":
                                 classroom_Data[selected_class]["student_list"].append(student)
                                 print("\nStudent added to classroom.")
                                 break
                             elif confirmation == "N":
-                                secondary_confirmation = input("\nWould you like to discard changes?\n[Y]Yes [N]No\n")
+                                secondary_confirmation = input("\nWould you like to discard changes?\n[Y]Yes [N]No\n").upper()
                                 if secondary_confirmation == "Y":
                                     print("\nDiscarding changes...")
                                     break
@@ -231,7 +233,7 @@ while True:
                                     elif selection == 0:
                                         while True:
                                             change = input(f"What would you like to change {student} first name to?\n")
-                                            confirmation = input(f"Are you sure you want to change {student}'s first name to {change}?\n[Y]Yes [N]No\n")
+                                            confirmation = input(f"Are you sure you want to change {student}'s first name to {change}?\n[Y]Yes [N]No\n").upper()
                                             if confirmation == "Y":
                                                 student_Data[student]["first_name"] = change
                                                 print("Successfully changed.")
@@ -278,11 +280,11 @@ while True:
         elif category == 3:
             while True:
                 try:
-                    selection = int(input("\n [0] Student List\n [1] Classroom List\n [2] Class Average Mark [3] Back\n"))
+                    selection = int(input("\n [0] Student List\n [1] Classroom List\n [2] Class Average Mark\n [3] Back\n"))
                 except:
                     print("\nPlease enter a number from the selection above.")
                 else:
-                    if selection not in range(0, 3):
+                    if selection not in range(0, 4):
                         print("\nPlease enter a number from the selection above.")
                     elif selection == 0:
                         pass
@@ -294,14 +296,14 @@ while True:
                         break
         elif category == 4:
             while True:
-                save = input("Would you like to save the changes?\n[Y] Yes [N] No\n")
+                save = input("Would you like to save the changes?\n[Y]Yes [N]No\n").upper()
                 if save == "Y":
                     print("Saving files...")
                     # adding to JSON file
                     exit()
                 elif save == "N":
                     while True:
-                        secondary_confirmation = input("Are you sure you want to discard all the changes?\n[Y] Yes [N] No\n")
+                        secondary_confirmation = input("Are you sure you want to discard all the changes?\n[Y]Yes [N]No\n").upper()
                         if secondary_confirmation == "Y":
                             print("Discarding changes")
                             exit()
