@@ -176,7 +176,7 @@ while True:
         elif category == 1:
             while True:
                 try:
-                    selection = int(input("\n [0] Add Student to Classroom\n [1] Edit Student\n [2] Back\n"))
+                    selection = int(input("\n [0] Add Student to Classroom\n [1] Edit Student Information\n [2] Back\n"))
                 except:
                     print("\nPlease enter a number from the selection above.")
                 else:
@@ -212,39 +212,51 @@ while True:
                                     break
         
                     elif selection == 1:
-                        while True:
-                            student = input("\nWhich student's information would you like to change? (First name and last name)\n")
-                            if student in student_Data.keys():
-                                break
-                            else:
-                                print("\nPlease enter a registered student.\n")
+                        if len(student_Data) != 0:
+                            while True:
+                                student = input("\nWhich student's information would you like to change? (First name and last name)\n")
+                                if student in student_Data.keys():
+                                    break
+                                else:
+                                    print("\nPlease enter a registered student.\n")
 
-                        while True:
-                            try:
-                                selection = int(input("What would you like to change?\n [0] First Name\n [1] Last Name\n [3] Gender\n [4] Image\n [5] Student Number\n [6] Grade\n [7] Email\n [8] Display Current Info\n"))
-                            except:
-                                print("Please enter a number from the selection above.\n")
-                            else:
-                                if selection not in range(0, 9):
+                            while True:
+                                try:
+                                    selection = int(input("What would you like to change?\n [0] First Name\n [1] Last Name\n [3] Gender\n [4] Image\n [5] Student Number\n [6] Grade\n [7] Email\n [8] Display Current Info\n"))
+                                except:
                                     print("Please enter a number from the selection above.\n")
-                                elif selection == 0:
-                                    pass
-                                elif selection == 1:
-                                    pass
-                                elif selection == 2:
-                                    pass
-                                elif selection == 3:
-                                    pass
-                                elif selection == 4:
-                                    pass
-                                elif selection == 5:
-                                    pass
-                                elif selection == 6:
-                                    pass
-                                elif selection == 7:
-                                    pass
-                                elif selection == 8:
-                                    pass
+                                else:
+                                    if selection not in range(0, 9):
+                                        print("Please enter a number from the selection above.\n")
+                                    elif selection == 0:
+                                        while True:
+                                            change = input(f"What would you like to change {student} first name to?\n")
+                                            confirmation = input(f"Are you sure you want to change {student}'s first name to {change}?\n[Y]Yes [N]No\n")
+                                            if confirmation == "Y":
+                                                student_Data[student]["first_name"] = change
+                                                print("Successfully changed.")
+                                            elif confirmation == "N":
+                                                break
+
+
+                                    elif selection == 1:
+                                        pass
+                                    elif selection == 2:
+                                        pass
+                                    elif selection == 3:
+                                        pass
+                                    elif selection == 4:
+                                        pass
+                                    elif selection == 5:
+                                        pass
+                                    elif selection == 6:
+                                        pass
+                                    elif selection == 7:
+                                        pass
+                                    elif selection == 8:
+                                        pass
+                        else:
+                            print("\nThere are currently no registered students.")
 
                     elif selection == 2:
                         break
