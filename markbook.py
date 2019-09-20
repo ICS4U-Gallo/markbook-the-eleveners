@@ -3,6 +3,7 @@ Markbook Application
 Group members: Joshua, Joseph
 """
 from typing import Dict
+import json, os.path
 
 # Students:
 # first_name: str
@@ -107,12 +108,27 @@ def edit_student(student: Dict, **kwargs: Dict):
 
 
 
+while True:
+    load_file = input("Hello, would you like to load in a file?\n[Y]Yes [N]No\n").upper()
+    if load_file == "Y":
+        while True:
+            file_name = input("Please enter the file name, including the file type? (File must be in this folder.)\n")
+            if os.path.exists(file_name) == True:
+                with open(file_name, "r") as f:
+                    data = json.load(f)
+                print("Information successfully loaded.")
+            else:
+                load_file = input("File does not exist in this folder. Would you like to enter file name again or create a new file later on?\n[T]Try Again [C]Continue\n").upper()
+                pass
+                
+    elif load_file == "N":
+        data = {
+            "student_Data": {}, 
+            "classroom_Data": {}
+        }
+        break
 
-
-student_Data = {}
-classroom_Data = {}
-
-print("\nHello, what would you like to do?")
+print("\nWhat would you like to do?")
 
 while True:
     try:
@@ -143,10 +159,10 @@ while True:
                         grade = int(input("Enter the student's grade: "))
                         email = str(input("Enter student's email: "))
 
-                        student_Data[f"{first_name} {last_name}"] = create_student(first_name, last_name, gender, image,
+                        data["student_Data"][f"{first_name} {last_name}"] = create_student(first_name, last_name, gender, image,
                                                         student_number, grade, email)
 
-                        print(student_Data)
+                        print(data["student_Data"])
 
                     elif selection == 1:
                         print("Create Classroom\n")
@@ -156,9 +172,9 @@ while True:
                         period = int(input("Enter the period of the class: "))
                         teacher = str(input("Enter the name of the teacher: "))
 
-                        classroom_Data[course_code] = create_classroom(course_code, course_name, period, teacher)
+                        data["classroom_Data"][course_code] = create_classroom(course_code, course_name, period, teacher)
 
-                        print(classroom_Data)
+                        print(data["classroom_Data"])
 
                     elif selection == 2:
                         print("Create Assignment\n")
@@ -187,23 +203,23 @@ while True:
                     elif selection == 0:
                         while True:
                             student = input("Which student would you like to change classes? (First and last name)\n")
-                            if student in student_Data.keys():
+                            if student in data["student_Data"].keys():
                                 break
                         
                         while True:
                             selected_class = input(f"\nWhich class would you like to put {student}? (Course code)\n")
-                            if selected_class in classroom_Data.keys():
-                                if student in classroom_Data[selected_class]["student_list"]:
+                            if selected_class in data["classroom_Data"].keys():
+                                if student in data["classroom_Data"][selected_class]["student_list"]:
                                     print(f"\n{student} is already in this class.")
                                 else:
-                                    teacher = classroom_Data[selected_class]["teacher"]
-                                    period_num = classroom_Data[selected_class]["period"]
+                                    teacher = data["classroom_Data"][selected_class]["teacher"]
+                                    period_num = data["classroom_Data"][selected_class]["period"]
                                     break
 
                         while True:
                             confirmation = input(f"\nAre you sure you want to put {student} in {selected_class} with {teacher} for period {period_num}?\n[Y]Yes [N]No\n").upper()
                             if confirmation == "Y":
-                                classroom_Data[selected_class]["student_list"].append(student)
+                                data["classroom_Data"][selected_class]["student_list"].append(student)
                                 print("\nStudent added to classroom.")
                                 break
                             elif confirmation == "N":
@@ -213,10 +229,10 @@ while True:
                                     break
         
                     elif selection == 1:
-                        if len(student_Data) != 0:
+                        if len(data["student_Data"]) != 0:
                             while True:
                                 student = input("\nWhich student's information would you like to change? (First name and last name)\n")
-                                if student in student_Data.keys():
+                                if student in data["student_Data"].keys():
                                     break
                                 else:
                                     print("\nPlease enter a registered student.\n")
@@ -234,7 +250,7 @@ while True:
                                             change = input(f"What would you like to change {student}'s first name to?\n")
                                             confirmation = input(f"Are you sure you want to change {student}'s first name to {change}?\n[Y]Yes [N]No\n").upper()
                                             if confirmation == "Y":
-                                                student_Data[student]["first_name"] = change
+                                                data["student_Data"][student]["first_name"] = change
                                                 print("Successfully changed.")
                                             elif confirmation == "N":
                                                 break
