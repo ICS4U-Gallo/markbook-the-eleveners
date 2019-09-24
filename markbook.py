@@ -3,7 +3,7 @@ Markbook Application
 Group members: Joshua, Joseph
 """
 from typing import Dict
-import json, os.path
+import json
 
 # Students:
 # first_name: str
@@ -108,25 +108,37 @@ def edit_student(student: Dict, **kwargs: Dict):
 
 
 
-while True:
-    load_file = input("Hello, would you like to load in a file?\n[Y]Yes [N]No\n").upper()
+
+loading_file = True
+tried_to_load = False #input display
+
+while loading_file:
+    if tried_to_load == False:
+        load_file = input("Would you like to load in a file?\n[Y]Yes [N]No\n").upper()
+
     if load_file == "Y":
-        while True:
-            file_name = input("Please enter the file name, including the file type? (File must be in this folder.)\n")
-            if os.path.exists(file_name) == True:
+        while loading_file:
+            file_name = str(input("Please enter the file name, including the file type. (File must be in this folder.)\n"))
+            try:
                 with open(file_name, "r") as f:
                     data = json.load(f)
-                print("Information successfully loaded.")
+            except:
+                print("\nFile does not exist in this folder.")
+                load_file = input("Would you like to try again?\n[Y]Yes [N]No\n").upper()
+                tried_to_load = True
+                break
             else:
-                load_file = input("File does not exist in this folder. Would you like to enter file name again or create a new file later on?\n[T]Try Again [C]Continue\n").upper()
-                pass
-                
+                print("\nInformation successfully loaded.")
+                loading_file = False
+      
     elif load_file == "N":
         data = {
             "student_Data": {}, 
             "classroom_Data": {}
         }
-        break
+        loading_file = False
+
+    
 
 print("\nWhat would you like to do?")
 
