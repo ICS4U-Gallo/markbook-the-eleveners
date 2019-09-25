@@ -110,11 +110,7 @@ def edit_student(student: Dict, **kwargs: Dict):
 # Menu
 
 loading_file = True
-tried_to_load = False #input display
-data_frame = {
-            "student_Data": {}, 
-            "classroom_Data": {}
-        }
+tried_to_load = False
 
 while loading_file:
     if tried_to_load == False:
@@ -125,19 +121,22 @@ while loading_file:
             file_name = str(input("Please enter the file name, including the file type. (File must be in this folder.)\n"))
             try:
                 with open(file_name, "r") as f:
-                    unchanged_data = json.load(f)
+                    data = json.load(f)
             except:
                 print("\nFile does not exist in this folder.")
                 load_file = input("Would you like to try again?\n[Y]Yes [N]No\n").upper()
                 tried_to_load = True
                 break
             else:
-                data = unchanged_data
                 print("\nInformation successfully loaded.")
                 loading_file = False
       
     elif load_file == "N":
-        data = data_frame
+        data = {
+                "student_Data": {}, 
+                "classroom_Data": {}
+            }
+
         loading_file = False
 
     
@@ -176,7 +175,7 @@ while True:
                         data["student_Data"][f"{first_name} {last_name}"] = create_student(first_name, last_name, gender, image,
                                                         student_number, grade, email)
 
-                        print(data["student_Data"])
+                        print(data)
 
                     elif selection == 1:
                         print("Create Classroom\n")
@@ -373,35 +372,31 @@ while True:
                     elif selection == 3:
                         break
         elif category == 4:
-            while True:
-                if (load_file == "Y" and data != unchanged_data) or (load_file == "N" and data != data_frame):
-                    save = input("Would you like to save the changes?\n[Y]Yes [N]No\n").upper()
-                    if save == "Y":
-                        if load_file == "N":
+            save = input("Would you like to save the changes?\n[Y]Yes [N]No\n").upper()
+            if save == "Y":
+                if load_file == "N":
+                    confirmation = "None"
+                    while True:
+                        if confirmation != "Y":
                             confirmation = "None"
-                            while True:
-                                if confirmation != "Y":
-                                    confirmation = "None"
-                                    file_name = str(input("What would you like to name the new file?\n"))
-                                    while confirmation != "Y" or confirmation != "N":
-                                        confirmation = input(f"Are you sure you want to save all changes in {file_name}.json?\n[Y]Yes [N]No\n").upper()
+                            file_name = str(input("What would you like to name the new file?\n"))
+                            while confirmation != "Y" or confirmation != "N":
+                                confirmation = input(f"Are you sure you want to save all changes in {file_name}.json?\n[Y]Yes [N]No\n").upper()
 
-                                if ".json" not in file_name:
-                                    file_name += ".json"
-                                    break
+                        if ".json" not in file_name:
+                            file_name += ".json"
+                            break
 
-                        with open(file_name, "w") as f:
-                            json.dump(data, f)
-                        
-                        print("Saved all changes.")
+                with open(file_name, "w") as f:
+                    json.dump(data, f)
+                
+                print("Saved all changes.")
+                exit()
+            elif save == "N":
+                while True:
+                    secondary_confirmation = input("Are you sure you want to discard all the changes?\n[Y]Yes [N]No\n").upper()
+                    if secondary_confirmation == "Y":
+                        print("Discarding changes")
                         exit()
-                    elif save == "N":
-                        while True:
-                            secondary_confirmation = input("Are you sure you want to discard all the changes?\n[Y]Yes [N]No\n").upper()
-                            if secondary_confirmation == "Y":
-                                print("Discarding changes")
-                                exit()
-                            elif secondary_confirmation == "N":
-                                break
-                else:
-                    exit()
+                    elif secondary_confirmation == "N":
+                        break
