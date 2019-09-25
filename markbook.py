@@ -133,9 +133,11 @@ while loading_file:
       
     elif load_file == "N":
         data = {
-                "student_Data": {}, 
+                "student_List": [],
+                "student_Data": {},
+                "classroom_List": [], 
                 "classroom_Data": {}
-            }
+                }
 
         loading_file = False
 
@@ -172,10 +174,12 @@ while True:
                         grade = int(input("Enter the student's grade: "))
                         email = str(input("Enter student's email: "))
 
-                        data["student_Data"][f"{first_name} {last_name}"] = create_student(first_name, last_name, gender, image,
-                                                        student_number, grade, email)
+                        full_name = f"{first_name} {last_name}"
+                        data["student_Data"][full_name] = create_student(first_name, last_name, gender, image,
+                                                                         student_number, grade, email)
 
-                        print(data)
+                        data["student_List"].append(full_name)
+                        
 
                     elif selection == 1:
                         print("Create Classroom\n")
@@ -187,7 +191,8 @@ while True:
 
                         data["classroom_Data"][course_code] = create_classroom(course_code, course_name, period, teacher)
 
-                        print(data["classroom_Data"])
+                        data["classroom_Data"].append(course_code)
+
 
                     elif selection == 2:
                         print("Create Assignment\n")
@@ -373,11 +378,16 @@ while True:
                     print("\nPlease enter a number from the selection above.")
                 else:
                     if selection not in range(0, 4):
-                        print("\nPlease enter a number from the selection above.")
+                        print("\nPlease enter a number from the selection above.\n")
+
                     elif selection == 0:
-                        pass
+                        for student in data["student_List"]:
+                            print(student)
+
                     elif selection == 1:
-                        pass
+                        for class_code in data["classroom_List"]:
+                            print(class_code)
+
                     elif selection == 2:
                         pass
                     elif selection == 3:
