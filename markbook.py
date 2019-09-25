@@ -329,6 +329,7 @@ while True:
                                                 break
 
                                     elif selection == 7:
+                                        pass
                                         
 
                         else:
