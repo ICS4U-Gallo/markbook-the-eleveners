@@ -107,7 +107,7 @@ def edit_student(student: Dict, **kwargs: Dict):
 
 
 
-# Menu
+# Loading in file
 
 loading_file = True
 tried_to_load = False
@@ -141,17 +141,17 @@ while loading_file:
 
         loading_file = False
 
-    
+# Menu    
 
 print("\nWhat would you like to do?")
 
 while True:
     try:
-        category = int(input("\n [0] Create new information\n [1] Edit current information\n [2] Delete/Remove information\n [3] Preview saved information\n [4] Exit\n"))
+        category = int(input("\n [0] Create new information\n [1] Edit current information\n [2] Preview saved information\n [3] Exit\n"))
     except:
         print("\nPlease enter a number from the categories below.")
     else:
-        if category not in range(0, 5):
+        if category not in range(0, 4):
             print("\nPlease enter a number from the categories below.")
         elif category == 0:
             while True:
@@ -211,11 +211,11 @@ while True:
         elif category == 1:
             while True:
                 try:
-                    selection = int(input("\n [0] Add Student to Classroom\n [1] Edit Student Information\n [2] Back\n"))
+                    selection = int(input("\n [0] Add Student to Classroom\n [1] Edit Student Information\n [2] Remove student from Classroom\n [3] Back\n"))
                 except:
                     print("\nPlease enter a number from the selection above.")
                 else:
-                    if selection not in range(0, 3):
+                    if selection not in range(0, 4):
                         print("\nPlease enter a number from the selection above.")
 
                     elif selection == 0:
@@ -341,32 +341,19 @@ while True:
                         else:
                             print("\nThere are currently no registered students.")
                             break
-
                     elif selection == 2:
+                        pass
+                    elif selection == 3:
                         break
 
         elif category == 2:
             while True:
                 try:
-                    selection = int(input("\n [0] Remove Student From Classroom\n [1] Back\n"))
+                    selection = int(input("\n [0] Student List\n [1] Classroom List\n [2] Student Average Mark\n [3] Class Average Mark\n [4] Back\n"))
                 except:
                     print("\nPlease enter a number from the selection above.")
                 else:
-                    if selection not in range(0, 2):
-                        print("\nPlease enter a number from the selection above.")
-                    elif selection == 0:
-                        pass
-                    elif selection == 1:
-                        break
-
-        elif category == 3:
-            while True:
-                try:
-                    selection = int(input("\n [0] Student List\n [1] Classroom List\n [2] Class Average Mark\n [3] Back\n"))
-                except:
-                    print("\nPlease enter a number from the selection above.")
-                else:
-                    if selection not in range(0, 4):
+                    if selection not in range(0, 5):
                         print("\nPlease enter a number from the selection above.\n")
 
                     elif selection == 0:
@@ -380,8 +367,10 @@ while True:
                     elif selection == 2:
                         pass
                     elif selection == 3:
+                        pass
+                    elif selection == 4:
                         break
-        elif category == 4:
+        elif category == 3:
             save = input("Would you like to save the changes?\n[Y]Yes [N]No\n").upper()
             if save == "Y":
                 if load_file == "N":
