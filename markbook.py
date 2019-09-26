@@ -338,12 +338,12 @@ while True:
                                         while True:
                                             which_student = input(f"Which student would you like to view?\n")
                                             if which_student in data["student_Data"][student]:
-                                                print(data["student_Data"][student]["first_name"]
-                                                      data["student_Data"][student]["last_name"]
-                                                      data["student_Data"][student]["gender"]
-                                                      data["student_Data"][student]["image"]
-                                                      data["student_Data"][student]["student_number"]
-                                                      data["student_Data"][student]["grade"]
+                                                print(data["student_Data"][student]["first_name"],
+                                                      data["student_Data"][student]["last_name"],
+                                                      data["student_Data"][student]["gender"],
+                                                      data["student_Data"][student]["image"],
+                                                      data["student_Data"][student]["student_number"],
+                                                      data["student_Data"][student]["grade"],
                                                       data["student_Data"][student]["email"])
                                             else:
                                                 pass
