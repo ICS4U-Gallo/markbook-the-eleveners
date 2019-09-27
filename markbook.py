@@ -346,15 +346,14 @@ while True:
                                                       data["student_Data"][student]["grade"],
                                                       data["student_Data"][student]["email"])
                                             else:
-                                                pass
-                                        
+                                                pass         
 
                         else:
                             print("\nThere are currently no registered students.")
                             break
                     elif selection == 2:
                         if len(data["classroom_List"]) != 0:
-                            if len(data["student_List"]) != 0
+                            if len(data["student_List"]) != 0:
                                 while True:
                                     selected_class = input("Which class would you like to choose? (Please enter the class code)\n")
                                     if selected_class in data["classroom_List"]:
