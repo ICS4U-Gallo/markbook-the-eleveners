@@ -326,7 +326,7 @@ while True:
 
                                     elif selection == 6:
                                         while True:
-                                            change = input(f"What would you like to change {student}'s enail to?\n")
+                                            change = input(f"What would you like to change {student}'s email to?\n")
                                             confirmation = input(f"Are you sure you want to change {student}'s email to {change}?\n[Y]Yes [N]No\n").upper()
                                             if confirmation == "Y":
                                                 data["student_Data"][student]["email"] = change
@@ -336,15 +336,16 @@ while True:
 
                                     elif selection == 7:
                                         while True:
-                                            which_student = input(f"Which student would you like to view?\n")
-                                            if which_student in data["student_Data"][student]:
+                                            student = input(f"Which student would you like to view?\n")
+                                            if student in data["student_Data"][student]:
                                                 print(data["student_Data"][student]["first_name"],
                                                       data["student_Data"][student]["last_name"],
                                                       data["student_Data"][student]["gender"],
                                                       data["student_Data"][student]["image"],
                                                       data["student_Data"][student]["student_number"],
                                                       data["student_Data"][student]["grade"],
-                                                      data["student_Data"][student]["email"])
+                                                      data["student_Data"][student]["email"],
+                                                      data["student_Data"][student]["marks"])
                                             else:
                                                 pass         
 
