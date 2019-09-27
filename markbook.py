@@ -191,7 +191,7 @@ while True:
 
                         data["classroom_Data"][course_code] = create_classroom(course_code, course_name, period, teacher)
 
-                        data["classroom_Data"].append(course_code)
+                        data["classroom_List"].append(course_code)
 
 
                     elif selection == 2:
@@ -221,12 +221,12 @@ while True:
                     elif selection == 0:
                         while True:
                             student = input("Which student would you like to change classes? (First and last name)\n")
-                            if student in data["student_Data"].keys():
+                            if student in data["student_List"]:
                                 break
                         
                         while True:
                             selected_class = input(f"\nWhich class would you like to put {student}? (Course code)\n")
-                            if selected_class in data["classroom_Data"].keys():
+                            if selected_class in data["classroom_List"]:
                                 if student in data["classroom_Data"][selected_class]["student_list"]:
                                     print(f"\n{student} is already in this class.")
                                 else:
@@ -247,10 +247,10 @@ while True:
                                     break
         
                     elif selection == 1:
-                        if len(data["student_Data"]) != 0:
+                        if len(data["student_List"]) != 0:
                             while True:
                                 student = input("\nWhich student's information would you like to change? (First name and last name)\n")
-                                if student in data["student_Data"].keys():
+                                if student in data["student_List"].keys():
                                     break
                                 else:
                                     print("\nPlease enter a registered student.\n")
@@ -353,7 +353,33 @@ while True:
                             print("\nThere are currently no registered students.")
                             break
                     elif selection == 2:
-                        pass
+                        if len(data["classroom_List"]) != 0:
+                            if len(data["student_List"]) != 0
+                                while True:
+                                    selected_class = input("Which class would you like to choose? (Please enter the class code)\n")
+                                    if selected_class in data["classroom_List"]:
+                                        break
+
+                                while True:
+                                    student = input(f"Which student would you like to remove from {selected_class}? (Please enter student's first and last name)")
+                                    if student not in data["student_List"]:
+                                        print(f"There is no student by the name of {student} registered.")
+                                    elif student not in data["classroom_Data"][selected_class]["student_list"]:
+                                        print(f"{student} is not attending this class.")
+                                    else:
+                                        while True:
+                                            confirmation = input(f"Are you sure you want to remove {student} from {selected_class}?\n[Y]Yes [N]No\n").upper()
+                                            if confirmation == "Y":
+                                                data["classroom_Data"][selected_class]["student_list"].remove(student)
+                                                print("Student removed from class.")
+                                                break
+                                            elif confirmation == "N":
+                                                break
+                            else:
+                                print("There are currently no registered students.")
+                        else:
+                            print("There are no classes currently running.")
+
                     elif selection == 3:
                         break
 
