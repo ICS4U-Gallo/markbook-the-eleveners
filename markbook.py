@@ -35,7 +35,7 @@ def create_student(first_name: str, last_name: str,
     """Creates a student dictionary"""
     return {"first_name": first_name, "last_name": last_name,
             "gender": gender, "image": image, "student_number":
-            student_number, "grade": grade, "email": email}
+            student_number, "grade": grade, "email": email, "classes": {}}
 
 
 def create_assignment(name: str, due: str, points: int) -> Dict:
