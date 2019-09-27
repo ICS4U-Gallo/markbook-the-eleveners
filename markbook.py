@@ -57,7 +57,7 @@ def create_classroom(course_code: str, course_name: str,
 
     return {"course_code": course_code, "course_name": course_name,
             "period": period, "teacher": teacher,
-            "student_list": [], "assignment_list": []}
+            "student_list": {}, "assignment_list": []}
 
 
 def calculate_average_mark(student: Dict) -> float:
@@ -77,7 +77,7 @@ def add_student_to_classroom(student, classroom):
     first_name = student["first_name"]
     last_name = student["last_name"]
 
-    classroom["student_list"].append(f"{first_name} {last_name}")
+    data[classroom]["student_list"][f"{first_name} {last_name}"] = None
 
 
 def remove_student_from_classroom(student: Dict, classroom: Dict):
@@ -87,10 +87,8 @@ def remove_student_from_classroom(student: Dict, classroom: Dict):
         student: The student to be removed
         classroom: the class from which the student will be removed.
     """
-    first_name = student["first_name"]
-    last_name = student["last_name"]
 
-    classroom["student_list"].remove(f"{first_name} {last_name}")
+    del data[classroom]["student_list"][student]
 
 
 def edit_student(student: Dict, **kwargs: Dict):
@@ -196,14 +194,15 @@ while True:
 
                     elif selection == 2:
                         print("Create Assignment\n")
-
+                        
+                        class_code = str(input("Which class is this assignment for? (Please enter class code)\n"))
                         name = str(input("Enter the assignment title: "))
                         due = str(input("Enter the due date: "))
-                        points = int(input("Enter how many points the assignment is worth: "))
+                        points = int(input("Enter how many points is the assignment worth: "))
 
                         assignment = create_assignment(name, due, points)
+                        data["classroom_Data"][class_code]["assignment_list"].append(assignment)
 
-                        print(assignment)
                     
                     elif selection == 3:
                         break
@@ -227,7 +226,7 @@ while True:
                         while True:
                             selected_class = input(f"\nWhich class would you like to put {student}? (Course code)\n")
                             if selected_class in data["classroom_List"]:
-                                if student in data["classroom_Data"][selected_class]["student_list"]:
+                                if student in data["classroom_Data"][selected_class]["student_list"].keys():
                                     print(f"\n{student} is already in this class.")
                                 else:
                                     teacher = data["classroom_Data"][selected_class]["teacher"]
@@ -237,7 +236,7 @@ while True:
                         while True:
                             confirmation = input(f"\nAre you sure you want to put {student} in {selected_class} with {teacher} for period {period_num}?\n[Y]Yes [N]No\n").upper()
                             if confirmation == "Y":
-                                data["classroom_Data"][selected_class]["student_list"].append(student)
+                                add_student_to_classroom(student, selected_class)
                                 print("\nStudent added to classroom.")
                                 break
                             elif confirmation == "N":
@@ -250,7 +249,7 @@ while True:
                         if len(data["student_List"]) != 0:
                             while True:
                                 student = input("\nWhich student's information would you like to change? (First name and last name)\n")
-                                if student in data["student_List"].keys():
+                                if student in data["student_List"]:
                                     break
                                 else:
                                     print("\nPlease enter a registered student.\n")
@@ -370,7 +369,7 @@ while True:
                                         while True:
                                             confirmation = input(f"Are you sure you want to remove {student} from {selected_class}?\n[Y]Yes [N]No\n").upper()
                                             if confirmation == "Y":
-                                                data["classroom_Data"][selected_class]["student_list"].remove(student)
+                                                remove_student_from_classroom(student, selected_class)
                                                 print("Student removed from class.")
                                                 break
                                             elif confirmation == "N":
