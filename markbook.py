@@ -77,8 +77,8 @@ def add_student_to_classroom(student, classroom):
     first_name = student["first_name"]
     last_name = student["last_name"]
 
-    data[classroom]["student_list"][f"{first_name} {last_name}"] = None
-
+    data["classroom_Data"][classroom]["student_list"][f"{first_name} {last_name}"] = None
+    data["student_Data"]["classes"][classroom] = None
 
 def remove_student_from_classroom(student: Dict, classroom: Dict):
     """Removes student from classroom
@@ -88,7 +88,8 @@ def remove_student_from_classroom(student: Dict, classroom: Dict):
         classroom: the class from which the student will be removed.
     """
 
-    del data[classroom]["student_list"][student]
+    del data["classroom_Data"][classroom]["student_list"][student]
+    del data["student_Data"]["classes"][classroom]
 
 
 def edit_student(student: Dict, **kwargs: Dict):
