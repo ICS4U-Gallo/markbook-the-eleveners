@@ -189,14 +189,40 @@ while True:
                     
                     elif selection == 0:
                         print("Register Student\n")
-
-                        first_name = str(input("Enter the student's first name: "))
-                        last_name = str(input("Enter the student's last name: "))
-                        gender = str(input("Enter the student's gender: "))
-                        image = str(input("Enter the student's image: "))
-                        student_number = int(input("Enter the student's student number: "))
-                        grade = int(input("Enter the student's grade: "))
-                        email = str(input("Enter student's email: "))
+                        while True:
+                            first_name = str(input("Please enter the student's first name: "))
+                            if first_name != "":
+                                break
+                        while True:
+                            last_name = str(input("Please enter the student's last name: "))
+                            if last_name != "":
+                                break
+                        while True:
+                            gender = str(input("Please enter the student's gender: "))
+                            if gender != "":
+                                break
+                        while True:
+                            image = str(input("Please enter the student's image: "))
+                            if image != "":
+                                break
+                        while True:
+                            try:
+                                student_number = int(input("Please enter the student's student number: "))
+                            except:
+                                print("Please enter a number.")
+                            else:
+                                break
+                        while True:
+                            try:
+                                grade = int(input("Please enter the student's grade: "))
+                            except:
+                                print("Please enter a number.")
+                            else:
+                                break
+                        while True:
+                            email = str(input("Please enter student's email: "))
+                            if email != "":
+                                break
 
                         full_name = f"{first_name} {last_name}"
                         data["student_Info"][full_name] = create_student(first_name, last_name, gender, image,
@@ -207,11 +233,25 @@ while True:
 
                     elif selection == 1:
                         print("Create Classroom\n")
-
-                        course_code = str(input("Enter the course code: "))
-                        course_name = str(input("Enter the course name: "))
-                        period = int(input("Enter the period of the class: "))
-                        teacher = str(input("Enter the name of the teacher: "))
+                        while True:
+                            course_code = str(input("Please enter the course code: "))
+                            if course_code != "":
+                                break
+                        while True:
+                            course_name = str(input("Please enter the course name: "))
+                            if course_name != "":
+                                break
+                        while True:
+                            try:
+                                period = int(input("Please enter the period of the class: "))
+                            except:
+                                print("Please enter a number.")
+                            else:
+                                break
+                        while True:
+                            teacher = str(input("Please enter the name of the teacher: "))
+                            if teacher != "":
+                                break
 
                         data["classroom_Info"][course_code] = create_classroom(course_code, course_name, period, teacher)
 
@@ -219,20 +259,46 @@ while True:
 
 
                     elif selection == 2:
-                        print("Create Assignment\n")
-                        
-                        class_code = str(input("Which class is this assignment for? (Please enter class code)\n"))
-                        name = str(input("Enter the assignment title: "))
-                        due = str(input("Enter the due date: "))
-                        points = int(input("Enter how many points is the assignment out of: "))
-                        weight = int(input("How much is the assignment worth: "))
+                        if data["classroom_List"] != 0:
+                            print("Create Assignment\n")
+                            while True:
+                                class_code = str(input("Which class is this assignment for? (Please enter class code)\n"))
+                                if class_code in data["classroom_List"]:
+                                    break
+                                else:
+                                    print("There is currently no class with this course code running.\n")
+                            while True:
+                                name = str(input("Enter the assignment title: "))
+                                if name != "":
+                                    break
+                            while True:
+                                due_date = str(input("Enter the due date: "))
+                                if due_date != "":
+                                    break
+                            while True:
+                                try:
+                                    points = int(input("Enter how many points is the assignment out of: "))
+                                except:
+                                    print("Please enter a number.")
+                                else:
+                                    break
+                            while True:
+                                try:
+                                    weight = int(input("How much is the assignment worth: "))
+                                except:
+                                    print("Please enter a number.")
+                                else:
+                                    break                                
 
-                        assignment = create_assignment(name, due, points, weight)
-                        data["classroom_Info"][class_code]["assignment_list"].append(assignment)
+                            assignment = create_assignment(name, due_date, points, weight)
+                            data["classroom_Info"][class_code]["assignment_list"].append(assignment)
+                        else:
+                            print("There is currently no classes running.")
 
                     
                     elif selection == 3:
                         break
+
 
         elif category == 1:
             while True:
