@@ -704,9 +704,9 @@ while True:
                                           "[1] Classroom List\n "
                                           "[2] Student Average Mark\n "
                                           "[3] Class Average Mark\n "
-                                          "[4] Student Info\n"
-                                          "[5] Classroom Info\n"
-                                          "[6] Back\n"))
+                                          "[4] Student Info\n "
+                                          "[5] Classroom Info\n "
+                                          "[6] Back\n "))
                 except:
                     print("\nPlease enter a number from the selection above.")
                 else:
@@ -781,9 +781,10 @@ while True:
                         if len(data["student_List"]) != 0:
                             while True:
                                 student = input("Please enter student's first and last name.\n")
-                                if student in (data["student_list"]):
+                                if student in (data["student_List"]):
                                     for key, value in data["student_Info"][student].items():
                                         print(f"{key}: {value}")
+                                    input("Press enter when you're done viewing.")
                                     break
                                 else:
                                     print("Please enter a registered student.")
@@ -801,6 +802,7 @@ while True:
                                                         ["classroom_List"]):
                                     for key, value in data["classroom_Info"][selected_class].items():
                                         print(f"{key}: {value}")
+                                    input("Press enter when you're done viewing.")
                                     break
                                 else:
                                     print("Please enter a registered class.")
