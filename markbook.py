@@ -69,7 +69,7 @@ def calculate_student_average(student: Dict) -> float:
     class_counter = 0
 
     for mark in marks.values():
-        if mark != None:
+        if mark is None:
             average += mark
             class_counter += 1
 
@@ -88,10 +88,10 @@ def calculate_class_average(classroom: Dict) -> float:
     student_counter = 0
 
     for mark in marks.values():
-        if mark != None:
+        if mark is None:
             average += mark
             student_counter += 1
-    
+
     if student_counter != 0:
         average /= len(marks)
         return f"{round(average, 1)}%"
@@ -731,7 +731,7 @@ while True:
                                                           ["classroom_List"]):
                                         if len(data["classroom_Info"]
                                                [selected_class]
-                                               ["student_marks"]) != 0:
+                                               ["student_list"]) != 0:
                                             class_average = calculate_class_average(data["classroom_Info"][selected_class])
                                             print("The class average for "
                                                   f"{selected_class} is "
