@@ -112,7 +112,7 @@ def remove_student_from_classroom(student: Dict, classroom: Dict):
     first_name = student["first_name"]
     last_name = student["last_name"]
 
-    classroom["student_list"].remove(f"{first_name} {last_name}")
+    classroom["student_List"].remove(f"{first_name} {last_name}")
     del student["classes"][classroom["course_code"]]
 
 
@@ -622,7 +622,7 @@ while True:
                                                     "like to remove from "
                                                     f"{selected_class}? "
                                                     "(Please enter student's "
-                                                    "first and last name)")
+                                                    "first and last name)\n")
                                     if student not in data["student_List"]:
                                         print("There is no student by the name"
                                               f" of {student} registered.")
