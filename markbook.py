@@ -66,12 +66,18 @@ def calculate_student_average(student: Dict) -> float:
 
     marks = student["classes"]
     average = 0.0
+    class_counter = 0
 
-    for value in marks.values():
-        average += value
+    for mark in marks.values():
+        if mark != None:
+            average += mark
+            class_counter += 1
 
-    average /= len(marks)
-    return round(average, 1)
+    if class_counter != 0:
+        average /= class_counter
+        return f"{round(average, 1)}%"
+    else:
+        return "none. No marks recorded"
 
 
 def calculate_class_average(classroom: Dict) -> float:
@@ -79,12 +85,18 @@ def calculate_class_average(classroom: Dict) -> float:
 
     marks = classroom["student_marks"]
     average = 0.0
+    student_counter = 0
 
-    for value in marks.values():
-        average += value
-
-    average /= len(marks)
-    return round(average, 1)
+    for mark in marks.values():
+        if mark != None:
+            average += mark
+            student_counter += 1
+    
+    if student_counter != 0:
+        average /= len(marks)
+        return f"{round(average, 1)}%"
+    else:
+        return "none. No marks recorded"
 
 
 def add_student_to_classroom(student, classroom):
@@ -112,7 +124,7 @@ def remove_student_from_classroom(student: Dict, classroom: Dict):
     first_name = student["first_name"]
     last_name = student["last_name"]
 
-    classroom["student_List"].remove(f"{first_name} {last_name}")
+    classroom["student_list"].remove(f"{first_name} {last_name}")
     del student["classes"][classroom["course_code"]]
 
 
@@ -649,6 +661,7 @@ while True:
                                                 break
                                             elif confirmation == "N":
                                                 break
+                                        break
                             else:
                                 print("There are currently no registered "
                                       "students.")
@@ -690,11 +703,11 @@ while True:
                                                     "enter first and last name"
                                                     ")\n")
                                     if student in data["student_List"]:
-                                        if len(data["studnet_Info"][student]
+                                        if len(data["student_Info"][student]
                                                ["classes"]) != 0:
                                             student_average = calculate_student_average(data["student_Info"][student])
                                             print("{student}'s average is "
-                                                  f"{student_average}%.")
+                                                  f"{student_average}.")
                                         else:
                                             print(f"{student} is currently not"
                                                   " attending any classes.")
@@ -722,7 +735,7 @@ while True:
                                             class_average = calculate_class_average(data["classroom_Info"][selected_class])
                                             print("The class average for "
                                                   f"{selected_class} is "
-                                                  f"{class_average}%.")
+                                                  f"{class_average}.")
                                         else:
                                             print("There are no students "
                                                   "attending this class.")
