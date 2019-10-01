@@ -706,7 +706,7 @@ while True:
                                         if len(data["student_Info"][student]
                                                ["classes"]) != 0:
                                             student_average = calculate_student_average(data["student_Info"][student])
-                                            print("{student}'s average is "
+                                            print(f"{student}'s average is "
                                                   f"{student_average}.")
                                         else:
                                             print(f"{student} is currently not"
