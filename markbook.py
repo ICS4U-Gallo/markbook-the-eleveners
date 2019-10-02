@@ -2,8 +2,8 @@
 Markbook Application
 Group members: Joseph, Joshua
 """
-from typing import Dict
 import json
+from typing import Dict
 
 # Students:
 # first_name: str
@@ -175,11 +175,11 @@ while loading_file:
 
     elif load_file == "N":
         data = {
-                "student_List": [],
-                "student_Info": {},
-                "classroom_List": [],
-                "classroom_Info": {}
-                }
+            "student_List": [],
+            "student_Info": {},
+            "classroom_List": [],
+            "classroom_Info": {}
+        }
 
         loading_file = False
 
@@ -205,7 +205,8 @@ while True:
                                           "[2] Create Assignment\n "
                                           "[3] Back\n"))
                 except:
-                    print("\nPlease enter a number from the selection above.")
+                    print(
+                        "\nPlease enter a number from the selection above.")
                 else:
                     if selection not in range(0, 4):
                         print("\nPlease enter a number "
@@ -317,7 +318,8 @@ while True:
                                 if name != "":
                                     break
                             while True:
-                                due_date = str(input("Enter the due date: "))
+                                due_date = str(
+                                    input("Enter the due date: "))
                                 if due_date != "":
                                     break
                             while True:
@@ -344,7 +346,8 @@ while True:
                             (data["classroom_Info"][class_code]
                              ["assignment_list"]).append(assignment)
                         else:
-                            print("There is currently no classes running.")
+                            print(
+                                "There is currently no classes running.")
 
                     elif selection == 3:
                         break
@@ -357,7 +360,8 @@ while True:
                                           "[2] Remove student from Classroom"
                                           "\n [3] Back\n"))
                 except:
-                    print("\nPlease enter a number from the selection above.")
+                    print(
+                        "\nPlease enter a number from the selection above.")
                 else:
                     if selection not in range(0, 4):
                         print("\nPlease enter a number from the "
@@ -373,7 +377,7 @@ while True:
                         while True:
                             selected_class = input("\nWhich class would you "
                                                    f"like to put {student}? "
-                                                    "(Course code)\n")
+                                                   "(Course code)\n")
                             if selected_class in data["classroom_List"]:
                                 if student in (data["classroom_Info"]
                                                [selected_class]
@@ -393,7 +397,7 @@ while True:
                                                  f"{selected_class} with "
                                                  f"{teacher} for period "
                                                  f"{period_num}?\n"
-                                                  "[Y]Yes [N]No\n").upper()
+                                                 "[Y]Yes [N]No\n").upper()
                             if confirmation == "Y":
                                 add_student_to_classroom(data["student_Info"]
                                                          [student],
@@ -468,7 +472,8 @@ while True:
                                                  ["first_name"]) = change
                                                 break
                                             elif confirmation == "N":
-                                                print("Change discarded")
+                                                print(
+                                                    "Change discarded")
                                                 break
 
                                     elif selection == 1:
@@ -491,7 +496,8 @@ while True:
                                                  ["last_name"]) = change
                                                 break
                                             elif confirmation == "N":
-                                                print("Change discarded")
+                                                print(
+                                                    "Change discarded")
                                                 break
 
                                     elif selection == 2:
@@ -513,7 +519,8 @@ while True:
                                                 changes_dict["gender"] = change
                                                 break
                                             elif confirmation == "N":
-                                                print("Change discarded")
+                                                print(
+                                                    "Change discarded")
                                                 break
 
                                     elif selection == 3:
@@ -534,7 +541,8 @@ while True:
                                                 changes_dict["image"] = change
                                                 break
                                             elif confirmation == "N":
-                                                print("Change discarded")
+                                                print(
+                                                    "Change discarded")
                                                 break
 
                                     elif selection == 4:
@@ -558,7 +566,8 @@ while True:
                                                  ["student_number"]) = change
                                                 break
                                             elif confirmation == "N":
-                                                print("Change discarded")
+                                                print(
+                                                    "Change discarded")
                                                 break
 
                                     elif selection == 5:
@@ -579,7 +588,8 @@ while True:
                                                 changes_dict["grade"] = change
                                                 break
                                             elif confirmation == "N":
-                                                print("Change discarded")
+                                                print(
+                                                    "Change discarded")
                                                 break
 
                                     elif selection == 6:
@@ -588,19 +598,14 @@ while True:
                                                            "like to change "
                                                            f"{first_name}'s "
                                                            "email to?\n")
-                                            confirmation = input("Are you sure"
-                                                                 " you want to"
-                                                                 " change "
-                                                                 f"{first_name}"
-                                                                 "'s email to "
-                                                                 "{change}?\n"
-                                                                 "[Y]Yes [N]No"
-                                                                 "\n").upper()
+                                            confirmation = input(
+                                                f"Are you sure you want to change {first_name}'s email to {change}?\n[Y]Yes [N]No\n").upper()
                                             if confirmation == "Y":
                                                 changes_dict["email"] = change
                                                 break
                                             elif confirmation == "N":
-                                                print("Change discarded")
+                                                print(
+                                                    "Change discarded")
                                                 break
 
                                     elif selection == 7:
@@ -611,37 +616,52 @@ while True:
                                             if new_name != student and len(data["student_Info"][student]["classes"]) != 0:
                                                 for classroom in data["student_Info"][student]["classes"].keys():
                                                     student_list = data["classroom_Info"][classroom]["student_list"]
-                                                    student_list.append(new_name)
-                                                    student_list.remove(student)
+                                                    student_list.append(
+                                                        new_name)
+                                                    student_list.remove(
+                                                        student)
                                                     student_marks = data["classroom_Info"][classroom]["student_marks"]
                                                     student_marks[new_name] = student_marks[student]
                                                     del student_marks[student]
-                                            edit_student(data["student_Info"][student], **changes_dict)
-                                            data["student_List"].append(new_name)
-                                            data["student_List"].remove(student)
-                                            data["student_Info"][new_name] = data["student_Info"][student].copy()
+                                            edit_student(
+                                                data["student_Info"][student], **changes_dict)
+                                            data["student_List"].append(
+                                                new_name)
+                                            data["student_List"].remove(
+                                                student)
+                                            data["student_Info"][new_name] = data["student_Info"][student].copy(
+                                            )
                                             del data["student_Info"][student]
 
                                         for key, value in data["student_Info"][student].items():
                                             if key == "first_name":
-                                                print(f"First name: {value}")
+                                                print(
+                                                    f"First name: {value}")
                                             elif key == "last_name":
-                                                print(f"Last name: {value}")
+                                                print(
+                                                    f"Last name: {value}")
                                             elif key == "gender":
-                                                print(f"Gender: {value}")
+                                                print(
+                                                    f"Gender: {value}")
                                             elif key == "image":
-                                                print(f"Image: {value}")
+                                                print(
+                                                    f"Image: {value}")
                                             elif key == "student_number":
-                                                print(f"Student number: {value}")
+                                                print(
+                                                    f"Student number: {value}")
                                             elif key == "grade":
-                                                print(f"Grade: {value}")
+                                                print(
+                                                    f"Grade: {value}")
                                             elif key == "email":
-                                                print(f"Email: {value}")
+                                                print(
+                                                    f"Email: {value}")
                                             elif key == "classes":
                                                 if value == {}:
-                                                    print("Classes: None")
+                                                    print(
+                                                        "Classes: None")
                                                 else:
-                                                    print(f"Classes: {value}")
+                                                    print(
+                                                        f"Classes: {value}")
                                         input("Press enter when you're done "
                                               "viewing.")
 
@@ -653,15 +673,21 @@ while True:
                                             if new_name != student and len(data["student_Info"][student]["classes"]) != 0:
                                                 for classroom in data["student_Info"][student]["classes"].keys():
                                                     student_list = data["classroom_Info"][classroom]["student_list"]
-                                                    student_list.append(new_name)
-                                                    student_list.remove(student)
+                                                    student_list.append(
+                                                        new_name)
+                                                    student_list.remove(
+                                                        student)
                                                     student_marks = data["classroom_Info"][classroom]["student_marks"]
                                                     student_marks[new_name] = student_marks[student]
                                                     del student_marks[student]
-                                            edit_student(data["student_Info"][student], **changes_dict)
-                                            data["student_List"].append(new_name)
-                                            data["student_List"].remove(student)
-                                            data["student_Info"][new_name] = data["student_Info"][student].copy()
+                                            edit_student(
+                                                data["student_Info"][student], **changes_dict)
+                                            data["student_List"].append(
+                                                new_name)
+                                            data["student_List"].remove(
+                                                student)
+                                            data["student_Info"][new_name] = data["student_Info"][student].copy(
+                                            )
                                             del data["student_Info"][student]
                                         break
                         else:
@@ -707,7 +733,8 @@ while True:
                                                                  "[N]No\n"
                                                                  ).upper()
                                             if confirmation == "Y":
-                                                remove_student_from_classroom(data["student_Info"][student], data["classroom_Info"][selected_class])
+                                                remove_student_from_classroom(
+                                                    data["student_Info"][student], data["classroom_Info"][selected_class])
                                                 print("Student removed from "
                                                       "class.")
                                                 break
@@ -718,7 +745,8 @@ while True:
                                 print("There are currently no registered "
                                       "students.")
                         else:
-                            print("There are no classes currently running.")
+                            print(
+                                "There are no classes currently running.")
 
                     elif selection == 3:
                         break
@@ -734,7 +762,8 @@ while True:
                                           "[5] Classroom Info\n "
                                           "[6] Back\n "))
                 except:
-                    print("\nPlease enter a number from the selection above.")
+                    print(
+                        "\nPlease enter a number from the selection above.")
                 else:
                     if selection not in range(0, 7):
                         print("\nPlease enter a number from the selection "
@@ -759,7 +788,8 @@ while True:
                                     if student in data["student_List"]:
                                         if len(data["student_Info"][student]
                                                ["classes"]) != 0:
-                                            student_average = calculate_student_average(data["student_Info"][student])
+                                            student_average = calculate_student_average(
+                                                data["student_Info"][student])
                                             print(f"{student}'s average is "
                                                   f"{student_average}.")
                                         else:
@@ -786,7 +816,8 @@ while True:
                                         if len(data["classroom_Info"]
                                                [selected_class]
                                                ["student_list"]) != 0:
-                                            class_average = calculate_class_average(data["classroom_Info"][selected_class])
+                                            class_average = calculate_class_average(
+                                                data["classroom_Info"][selected_class])
                                             print("The class average for "
                                                   f"{selected_class} is "
                                                   f"{class_average}.")
@@ -801,24 +832,29 @@ while True:
                                 print("There are currently no registered "
                                       "students.")
                         else:
-                            print("There are currently no classes running.")
+                            print(
+                                "There are currently no classes running.")
 
                     elif selection == 4:
                         if len(data["student_List"]) != 0:
                             while True:
-                                student = input("Please enter student's first and last name.\n")
+                                student = input(
+                                    "Please enter student's first and last name.\n")
                                 if student in (data["student_List"]):
                                     for key, value in data["student_Info"][student].items():
                                         if key == "first_name":
-                                            print(f"First name: {value}")
+                                            print(
+                                                f"First name: {value}")
                                         elif key == "last_name":
-                                            print(f"Last name: {value}")
+                                            print(
+                                                f"Last name: {value}")
                                         elif key == "gender":
                                             print(f"Gender: {value}")
                                         elif key == "image":
                                             print(f"Image: {value}")
                                         elif key == "student_number":
-                                            print(f"Student number: {value}")
+                                            print(
+                                                f"Student number: {value}")
                                         elif key == "grade":
                                             print(f"Grade: {value}")
                                         elif key == "email":
@@ -827,13 +863,17 @@ while True:
                                             if value == {}:
                                                 print("Classes: None")
                                             else:
-                                                print(f"Classes: {value}")
-                                    input("Press enter when you're done viewing.")
+                                                print(
+                                                    f"Classes: {value}")
+                                    input(
+                                        "Press enter when you're done viewing.")
                                     break
                                 else:
-                                    print("Please enter a registered student.")
+                                    print(
+                                        "Please enter a registered student.")
                         else:
-                            print("There are currently no registered students.")
+                            print(
+                                "There are currently no registered students.")
 
                     elif selection == 5:
                         if len(data["classroom_List"]) != 0:
@@ -845,35 +885,46 @@ while True:
                                 if selected_class in data["classroom_List"]:
                                     for key, value in data["classroom_Info"][selected_class].items():
                                         if key == "course_code":
-                                            print(f"Course code: {value}")
+                                            print(
+                                                f"Course code: {value}")
                                         elif key == "course_name":
-                                            print(f"Course name: {value}")
+                                            print(
+                                                f"Course name: {value}")
                                         elif key == "period":
                                             print(f"Period: {value}")
                                         elif key == "teacher":
                                             print(f"Teacher: {value}")
                                         elif key == "student_list":
                                             if value == {}:
-                                                print("Student list: None")
+                                                print(
+                                                    "Student list: None")
                                             else:
-                                                print(f"Student list: {value}")
+                                                print(
+                                                    f"Student list: {value}")
                                         elif key == "assignment_list":
                                             if value == {}:
-                                                print("Assignment list: None")
+                                                print(
+                                                    "Assignment list: None")
                                             else:
-                                                print(f"Assignment list: {value}")
+                                                print(
+                                                    f"Assignment list: {value}")
                                         elif key == "student_marks":
                                             if value == {}:
-                                                print("Student marks: None")
+                                                print(
+                                                    "Student marks: None")
                                             else:
-                                                print(f"Student mark: {value}")
+                                                print(
+                                                    f"Student mark: {value}")
 
-                                    input("Press enter when you're done viewing.")
+                                    input(
+                                        "Press enter when you're done viewing.")
                                     break
                                 else:
-                                    print("Please enter a registered class.")
+                                    print(
+                                        "Please enter a registered class.")
                         else:
-                            print("There are currently no classes running.")
+                            print(
+                                "There are currently no classes running.")
 
                     elif selection == 6:
                         break
