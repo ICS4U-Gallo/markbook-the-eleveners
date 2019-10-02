@@ -846,7 +846,7 @@ while True:
 
             if load_file == "Y":
                 with open(file_name, "w") as f:
-                    json.dump(data, f)
+                    json.dump(data, f, indent = 4)
 
                 print("Saved all changes.")
                 exit()
