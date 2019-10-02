@@ -85,7 +85,7 @@ def test_calculate_student_average():
     student["classes"]["ICS4U"] = 84.42
     student["classes"]["MHF4U"] = 90.0
 
-    assert markbook.calculate_student_average(student) == 87.2
+    assert markbook.calculate_student_average(student) == "87.2%"
 
 
 def test_class_average():
@@ -96,7 +96,7 @@ def test_class_average():
     classroom["student_marks"]["John"] = 80.0
     classroom["student_marks"]["Jane"] = 90.0
 
-    assert markbook.calculate_class_average(classroom) == 85.0
+    assert markbook.calculate_class_average(classroom) == "85.0%"
 
 
 

@@ -69,7 +69,7 @@ def calculate_student_average(student: Dict) -> float:
     class_counter = 0
 
     for mark in marks.values():
-        if mark is None:
+        if mark is not None:
             average += mark
             class_counter += 1
 
@@ -88,7 +88,7 @@ def calculate_class_average(classroom: Dict) -> float:
     student_counter = 0
 
     for mark in marks.values():
-        if mark is None:
+        if mark is not None:
             average += mark
             student_counter += 1
 
@@ -153,7 +153,7 @@ tried_to_load = False
 while loading_file:
     if tried_to_load is False:
         load_file = input(
-            "Would you like to load in a file?\n[Y]Yes [N]No\n").upper()
+            "Would you like to load from a file?\n[Y]Yes [N]No\n").upper()
 
     if load_file == "Y":
         while loading_file:
@@ -336,6 +336,7 @@ while True:
                                     data["classroom_Info"][class_code]["assignment_list"].append(
                                         assignment)
                                     print("\nNew assignment created.")
+                                    break
 
                                 else:
                                     print(
