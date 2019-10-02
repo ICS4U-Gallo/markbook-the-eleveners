@@ -875,7 +875,7 @@ while True:
                 file_name = ""
                 while file_name == "":
                     file_name = str(
-                        input("What would you like to name the new file?\n"))
+                        input("What would you like to name the new file? (File will be saved as a JSON file)\n"))
                 while True:
                     confirmation = input(
                         f"Are you sure you want to save all changes in {file_name}.json?\n[Y]Yes [N]No\n").upper()
