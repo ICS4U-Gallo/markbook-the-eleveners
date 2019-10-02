@@ -839,9 +839,9 @@ while True:
                         if len(data["classroom_List"]) != 0:
                             while True:
                                 selected_class = input("Which class would "
-                                                        "you like to choose"
-                                                        "? (Please enter "
-                                                        "the class code)\n")
+                                                       "you like to choose"
+                                                       "? (Please enter "
+                                                       "the class code)\n")
                                 if selected_class in data["classroom_List"]:
                                     for key, value in data["classroom_Info"][selected_class].items():
                                         if key == "course_code":
