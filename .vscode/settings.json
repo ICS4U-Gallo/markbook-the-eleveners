@@ -2,5 +2,5 @@
     "python.pythonPath": "D:\\Programs\\Python\\Python37-32\\python.exe",
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
-    "python.formatting.autopep8Args": ["--max-line-length","70"]
+    "python.formatting.autopep8Args": ["--max-line-length=70"]
 }
